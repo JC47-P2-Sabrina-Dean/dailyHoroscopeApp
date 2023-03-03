@@ -228,7 +228,10 @@ GENERAL STYLES
 html {
   background-image: url("../../../assets/starBackground.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-size: 125%;
 }
 
 .wrapper {
@@ -266,10 +269,33 @@ p {
   padding: 0;
 }
 
-h1, .intro p, footer p {
+h1, .intro p, .signRange, footer p {
   color: #fff;
 }
 
+h1 {
+  font-family: "Spectral SC", serif;
+  font-size: clamp(2.8125rem, 2.2115rem + 1.9231vw, 3.75rem);
+  padding: 20px 0;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+h2, h3 {
+  font-family: "Spectral SC", serif;
+}
+
+p {
+  font-family: "Mali", cursive;
+}
+
+.signRange p {
+  font-size: 0.8rem;
+}
+
+/* ====index.html===== */
 nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -282,6 +308,7 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-align: center;
 }
 nav .homeButton {
   display: none;
@@ -290,10 +317,69 @@ nav .homeButton {
 .signButtonSection {
   height: 85vh;
 }
-.signButtonSection .signsGrid {
+.signButtonSection .signsView {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 70%;
+  padding-top: 100px;
+}
+.signButtonSection .signsView .signsGrid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 45vh;
+  margin-top: 100px;
+}
+.signButtonSection .signsView .signsGrid .signsCircle {
+  width: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.signButtonSection .signsView .signsGrid .signsCircle .signsButton {
+  border: 0;
+  width: 100px;
+  border-radius: 50%;
+}
+.signButtonSection .signsView .signsGrid .signsCircle .signRange {
+  margin-top: 10px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .horoscopeViewSection {
@@ -302,6 +388,10 @@ nav .homeButton {
 
 footer {
   height: 5vh;
+  text-align: center;
+  padding: 14px;
+  position: fixed;
+  width: 100%;
 }
 
 /* =======================

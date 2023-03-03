@@ -5,7 +5,10 @@ GENERAL STYLES
 html {
   background-image: url("../../../assets/starBackground.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-size: 125%; // 20px
 }
 
 .wrapper {
