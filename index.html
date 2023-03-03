@@ -24,9 +24,13 @@
     <!-- this will only appear when the .horoscopeView is visible, otherwise visibility: hidden, add event listener to it-->
   </nav>
 
-  <!-- div container, 12 signs -->
-  <div class="signsView">
-    <div class="wrapper">
+  <section class="signButtonSection">
+
+    <div class="intro">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam voluptate porro dicta error quam sed, ab atque natus reiciendis delectus et. Sed dicta ex, quos sit sequi magnam suscipit natus ab aspernatur quibusdam? Repellendus accusamus perferendis ex blanditiis quasi tempore illum excepturi ad. Illo vitae ipsa tempora ducimus aliquam omnis!</p>
+    </div>
+    <!-- div container, 12 signs -->
+    <div class="wrapper signsView">
       <ul class="signsGrid">
         <li>
           <button class="signsButton" id="aries">
@@ -172,52 +176,56 @@
           </button>
         </li>
       </ul><!-- .signsGrid END-->
-    </div> <!-- .container END -->
-  </div> <!-- .signsView END -->
+    </div> <!-- .wrapper .signsView END -->
 
-  <!-- dive container, horoscope view -->
-  <div class="horoscopeView">
-    <div class="wrapper horoscopeFlex">
-      <div class="signsButton" id="aries">
-        <img src="" alt="">
-      </div>
+  </section>
 
-      <div class="horoscope">
-        <!-- horoscope name (API) -->
-        <h2 class="horoscopeName"></h2>
-        <!-- date (API) -->
-        <h3 class="date"></h3>
-        <!-- horoscope (API) -->
-        <p class="horoscopeAPI"></p>
-        <!-- daily luck (API) -->
-        <div class="apiFacts">
-          <div>
-            <p>Compatibility</p>
-            <p class="factCompatibility"></p>
-          </div>
+  <section class="horoscopeViewSection">
 
-          <div>
-            <p>Mood</p>
-            <p class="factMood"></p>
-          </div>
-
-          <div>
-            <p>Color</p>
-            <p class="factColor"></p>
-          </div>
-
-          <div>
-            <p>Lucky Number</p>
-            <p class="factNumber"></p>
-          </div>
-
-          <div>
-            <p>Lucky Time</p>
-            <p class="factTime"></p>
+    <!-- div container, horoscope view -->
+    <div class="horoscopeView">
+      <div class="wrapper horoscopeFlex">
+        <div class="signsButton" id="aries">
+          <img src="" alt="">
+        </div>
+  
+        <div class="horoscope">
+          <!-- horoscope name (API) -->
+          <h2 class="horoscopeName"></h2>
+          <!-- date (API) -->
+          <h3 class="date"></h3>
+          <!-- horoscope (API) -->
+          <p class="horoscopeAPI"></p>
+          <!-- daily luck (API) -->
+          <div class="apiFacts">
+            <div>
+              <p>Compatibility</p>
+              <p class="factCompatibility"></p>
+            </div>
+  
+            <div>
+              <p>Mood</p>
+              <p class="factMood"></p>
+            </div>
+  
+            <div>
+              <p>Color</p>
+              <p class="factColor"></p>
+            </div>
+  
+            <div>
+              <p>Lucky Number</p>
+              <p class="factNumber"></p>
+            </div>
+  
+            <div>
+              <p>Lucky Time</p>
+              <p class="factTime"></p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+  </section>
 
     <footer>
       <div class="wrapper">

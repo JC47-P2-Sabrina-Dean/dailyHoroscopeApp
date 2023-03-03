@@ -1,0 +1,29 @@
+
+nav {
+  display: flex;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .homeButton {
+    display: none;
+  }
+} 
+
+.signButtonSection {
+  height: 85vh;
+
+  .signsGrid {
+    display: flex;
+  }
+}
+
+
+.horoscopeViewSection {
+  display: none;
+}
+
+footer {
+  height: 5vh;
+}
