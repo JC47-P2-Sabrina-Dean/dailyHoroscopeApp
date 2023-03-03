@@ -1,0 +1,79 @@
+/* ====index.html===== */
+
+// NAVIGATION
+nav {
+  display: flex;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  // change star sign 
+  .homeButton {
+    display: none;
+  }
+} 
+
+// SIGNS BUTTON SECTION
+.signButtonSection {
+  height: 85vh;
+
+  .signsView {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    padding-top: 100px;
+
+    // ul grid for sign buttons
+    .signsGrid {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap;
+      // gap: 10px;
+      height: 45vh;
+      // width: 90%;
+      margin-top: 100px;
+  
+      .signsCircle {
+        width: 160px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+  
+        .signsButton {
+          border: 0;
+          width: 100px;
+          border-radius: 50%;
+        }
+
+        .signRange {
+          margin-top: 10px;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+// HOROSCOPE SECTION
+
+// horoscope display view
+.horoscopeViewSection {
+  display: none;
+}
+
+// FOOTER
+footer {
+  height: 5vh;
+  text-align: center;
+  padding: 14px;
+  position: fixed;
+  width: 100%;
+}
