@@ -37,6 +37,7 @@ img {
   max-width: 100%; /* Makes all images become responsive if the parent container wants to shrink */
   display: block; /* removes extra padding at bottom of images */
   height: auto;
+  padding: 5px;
 }
 
 button {

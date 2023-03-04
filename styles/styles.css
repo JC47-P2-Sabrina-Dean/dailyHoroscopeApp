@@ -1,4 +1,4 @@
-@import url("https: //fonts.googleapis.com/css2?family=Mali:wght@400;700&family=Spectral&family=Spectral+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,400;0,700;1,400&family=Spectral&family=Spectral+SC&display=swap");
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -259,6 +259,7 @@ img {
   max-width: 100%; /* Makes all images become responsive if the parent container wants to shrink */
   display: block; /* removes extra padding at bottom of images */
   height: auto;
+  padding: 5px;
 }
 
 button {
@@ -298,8 +299,16 @@ h2 {
   font-size: 1.2rem;
 }
 
-.signRange p {
+h3 {
+  font-size: 1.5rem;
+}
+
+.signRange p, .apiSignRange {
   font-size: 0.8rem;
+}
+
+.apiDescription {
+  font-style: italic;
 }
 
 footer p {
@@ -324,7 +333,6 @@ nav div {
   width: 15%;
 }
 nav .homeButton {
-  visibility: hidden;
   font-family: "Spectral SC", serif;
   padding: 15px 10px;
   margin-right: 20%;
@@ -407,8 +415,94 @@ nav .homeButton {
       -ms-flex-align: center;
           align-items: center;
 }
-.signButtonSection .signsView .signsGrid .signsCircle img {
-  padding: 5px;
+
+.horoscopeViewSection .horoscopeFlex {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.horoscopeViewSection .signsButton {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #EFEFEF;
+}
+.horoscopeViewSection .signRange {
+  text-align: center;
+  margin: 10px 0 30px;
+}
+.horoscopeViewSection .apiCurrentDate {
+  padding: 10px 0;
+}
+.horoscopeViewSection .horoscope, .horoscopeViewSection .apiDescription {
+  padding: 35px 0;
+}
+.horoscopeViewSection .horoscope {
+  background-color: #EFEFEF;
+  color: #111010;
+  border-radius: 15px;
+  width: 75%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.horoscopeViewSection .horoscope .apiDescription {
+  width: 75%;
+  text-align: center;
+  text-justify: inter-word;
+  justify-self: center;
+}
+.horoscopeViewSection .horoscope .apiFacts {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 10px 0 0;
+}
+.horoscopeViewSection .horoscope .apiFacts div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 10vw;
+}
+.horoscopeViewSection .horoscope .apiFacts div p {
+  text-align: center;
+  font-family: "Spectral", serif;
+}
+.horoscopeViewSection .horoscope .apiFacts div :first-child {
+  text-decoration: underline;
+  font-size: 1.1rem;
+  line-height: 30px;
 }
 
 footer {
