@@ -3,21 +3,35 @@
 // NAVIGATION
 nav {
   display: flex;
-  height: 10vh;
-  display: flex;
-  justify-content: center;
+  // height: 10vh;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
+  width: 100vw;
+
+  div {
+    width: 15%;
+  }
 
   // change star sign 
   .homeButton {
-    display: none;
+    visibility: hidden;
+    // toggle this to make button reappear in second view, to return to first view
+    font-family: $titleFont;
+    padding: 15px 10px;
+    margin-right: 20%;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    width: 10vw;
   }
 } 
 
 // SIGNS BUTTON SECTION
 .signButtonSection {
-  height: 85vh;
+  height: auto;
+  display: none;
+  // toggle this to make first view disappear
 
   .signsView {
     display: flex;
@@ -25,7 +39,13 @@ nav {
     align-items: center;
     justify-content: center;
     width: 70%;
-    padding-top: 100px;
+    padding-top: 25px;
+
+    .intro {
+      width: 75%;
+      text-align: center;
+      text-justify: inter-word;
+    }
 
     // ul grid for sign buttons
     .signsGrid {
@@ -34,16 +54,16 @@ nav {
       align-items: center;
       flex-wrap: wrap;
       height: 45vh;
-      margin-top: 100px;
+      margin-top: 50px;
   
       .signsCircle {
         width: 160px;
         display: flex;
         align-items: center;
         flex-direction: column;
+        padding: 25px;
   
         .signsButton {
-          border: 0;
           width: 100px;
           border-radius: 50%;
         }
@@ -55,23 +75,26 @@ nav {
           flex-direction: column;
           align-items: center;
         }
+
+        img {
+          padding: 5px;
+        }
       }
     }
   }
 }
 
 // HOROSCOPE SECTION
-
-// horoscope display view
 .horoscopeViewSection {
-  display: none;
+  // display: none;
+  // toggle this to make second view appear
 }
 
 // FOOTER
 footer {
-  height: 5vh;
   text-align: center;
-  padding: 14px;
   position: fixed;
+  bottom: 0;
   width: 100%;
+  padding: 10px;
 }

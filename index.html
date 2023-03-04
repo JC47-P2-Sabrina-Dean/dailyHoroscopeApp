@@ -6,9 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daily Horoscope App</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Mali:wght@400;700&family=Spectral&family=Spectral+SC&display=swap"
     rel="stylesheet">
@@ -19,18 +16,22 @@
 <body>
   <!-- nav, title, home button -->
   <nav>
+    <div></div> <!-- extra div to make sure the h1 stays in the center when we flex the whole nave -->
     <h1>Daily Horoscope</h1>
-    <button class="homeButton">Change Sign</button>
-    <!-- this will only appear when the .horoscopeView is visible, otherwise visibility: hidden, add event listener to it-->
+    <div>
+      <button class="homeButton">Change Sign</button>
+      <!-- this will only appear when the .horoscopeView is visible, otherwise visibility: hidden, add event listener to it--> 
+    </div>
   </nav>
 
   <section class="signButtonSection">
     
     <div class="wrapper signsView">
       <div class="intro">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam voluptate porro dicta error quam sed, ab atque natus reiciendis delectus et. Sed dicta ex, quos sit sequi magnam suscipit natus ab aspernatur quibusdam? Repellendus accusamus perferendis ex blanditiis quasi tempore illum excepturi ad. Illo vitae ipsa tempora ducimus aliquam omnis!</p>
+        <p>Want to know how the stars are aligning for you today? With your daily horoscope, find out what to look out for and what the universe has planned for your future!</p>
       </div>
-    <!-- div container, 12 signs -->
+
+    <!-- 12 signs -->
       <ul class="signsGrid">
         <li class="signsCircle">
           <button class="signsButton" id="aries">
@@ -130,7 +131,7 @@
 
         <li class="signsCircle">
           <button class="signsButton" id="sagitarius">
-            <img src="./assets/sagitarius.png" alt="">
+            <img src="./assets/sagittarius.png" alt="">
           </button>
           <div class="signRange">
             <h2 class="signName">Sagittarius</h2>
@@ -177,7 +178,6 @@
         </li>
       </ul><!-- .signsGrid END-->
     </div> <!-- .wrapper .signsView END -->
-
   </section>
 
   <section class="horoscopeViewSection">
@@ -227,11 +227,11 @@
       </div>
   </section>
 
-    <footer>
-      <div class="wrapper">
-        <p>Created at <a href="https://junocollege.com/" target="_blank">Juno College</a></p>
-      </div>
-    </footer>
+  <footer>
+    <div class="wrapper">
+      <p>Created by Sabrina and Dean at ★ <a href="https://junocollege.com/" target="_blank">Juno College</a> ★</p>
+    </div>
+  </footer>
 
     <script src="/javascript/script.js"></script>
 </body>

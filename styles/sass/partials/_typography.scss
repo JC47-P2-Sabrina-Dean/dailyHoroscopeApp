@@ -6,8 +6,17 @@ p {
   padding: 0;
 }
 
+h2,
+h3 {
+  font-family: $titleFont;
+}
+
+p {
+  font-family: $bodyFont;
+}
+
 h1, .intro p, .signRange, footer p {
-  color: #fff;
+  color: $white;
 } 
 
 h1 {
@@ -20,14 +29,10 @@ h2 {
   font-size: 1.2rem;
 }
 
-h2, h3 {
-  font-family: $titleFont;
-}
-
-p {
-  font-family: $bodyFont;
-}
-
 .signRange p {
   font-size: 0.8rem;
+}
+
+footer p {
+  font-size: 0.75rem;
 }
