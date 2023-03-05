@@ -6,9 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daily Horoscope App</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Mali:wght@400;700&family=Spectral&family=Spectral+SC&display=swap"
     rel="stylesheet">
@@ -19,18 +16,22 @@
 <body>
   <!-- nav, title, home button -->
   <nav>
+    <div></div> <!-- extra div to make sure the h1 stays in the center when we flex the whole nave -->
     <h1>Daily Horoscope</h1>
-    <button class="homeButton">Change Sign</button>
-    <!-- this will only appear when the .horoscopeView is visible, otherwise visibility: hidden, add event listener to it-->
+    <div>
+      <button class="homeButton">Change Sign</button>
+      <!-- this will only appear when the .horoscopeView is visible, otherwise visibility: hidden, add event listener to it--> 
+    </div>
   </nav>
 
   <section class="signButtonSection">
     
     <div class="wrapper signsView">
       <div class="intro">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam voluptate porro dicta error quam sed, ab atque natus reiciendis delectus et. Sed dicta ex, quos sit sequi magnam suscipit natus ab aspernatur quibusdam? Repellendus accusamus perferendis ex blanditiis quasi tempore illum excepturi ad. Illo vitae ipsa tempora ducimus aliquam omnis!</p>
+        <p>Want to know how the stars are aligning for you today? With your daily horoscope, find out what to look out for and what the universe has planned for your future!</p>
       </div>
-    <!-- div container, 12 signs -->
+
+    <!-- 12 signs -->
       <ul class="signsGrid">
         <li class="signsCircle">
           <button class="signsButton" id="aries">
@@ -39,7 +40,7 @@
           <div class="signRange">
             <h2 class="signName">Aries</h2>
             <p>Mar 21</p>
-            <p>to</p>
+            <p>-</p>
             <p>Apr 19</p>
           </div>
         </li>
@@ -51,7 +52,7 @@
           <div class="signRange">
             <h2 class="signName">Taurus</h2>
             <p>Apr 20</p>
-            <p>to</p>
+            <p>-</p>
             <p>May 20</p>
           </div>
         </li>
@@ -63,7 +64,7 @@
           <div class="signRange">
             <h2 class="signName">Gemini</h2>
             <p>May 21</p>
-            <p>to</p>
+            <p>-</p>
             <p>Jun 20</p>
           </div>
         </li>
@@ -75,7 +76,7 @@
             <div class="signRange">
             <h2 class="signName">Cancer</h2>
             <p>Jun 21</p>
-            <p>to</p>
+            <p>-</p>
             <p>Jul 22</p>
           </div>
         </li>
@@ -87,7 +88,7 @@
           <div class="signRange">
             <h2 class="signName">Leo</h2>
             <p>Jul 23</p>
-            <p>to</p>
+            <p>-</p>
             <p>Aug 22</p>
           </div>
         </li>
@@ -99,7 +100,7 @@
           <div class="signRange">
             <h2 class="signName">Virgo</h2>
             <p>Aug 23</p>
-            <p>to</p>
+            <p>-</p>
             <p>Sep 23</p>
           </div>
         </li>
@@ -111,7 +112,7 @@
           <div class="signRange">
             <h2 class="signName">Libra</h2>
             <p>Sep 24</p>
-            <p>to</p>
+            <p>-</p>
             <p>Oct 22</p>
           </div>
         </li>
@@ -123,19 +124,19 @@
           <div class="signRange">
             <h2 class="signName">Scorpio</h2>
             <p>Oct 23</p>
-            <p>to</p>
+            <p>-</p>
             <p>Nov 21</p>
           </div>
         </li>
 
         <li class="signsCircle">
           <button class="signsButton" id="sagitarius">
-            <img src="./assets/sagitarius.png" alt="">
+            <img src="./assets/sagittarius.png" alt="">
           </button>
           <div class="signRange">
             <h2 class="signName">Sagittarius</h2>
             <p>Nov 22</p>
-            <p>to</p>
+            <p>-</p>
             <p>Dec 21</p>
           </div>
         </li>
@@ -147,7 +148,7 @@
           <div class="signRange">
             <h2 class="signName">Capricorn</h2>
             <p>Dec 22</p>
-            <p>to</p>
+            <p>-</p>
             <p>Jan 19</p>
           </div>
         </li>
@@ -159,7 +160,7 @@
           <div class="signRange">
             <h2 class="signName">Aquarius</h2>
             <p>Jan 20</p>
-            <p>to</p>
+            <p>-</p>
             <p>Feb 18</p>
           </div>
         </li>
@@ -171,13 +172,12 @@
           <div class="signRange">
             <h2 class="signName">Pisces</h2>
             <p>Feb 19</p>
-            <p>to</p>
+            <p>-</p>
             <p>Mar 20</p>
           </div>
         </li>
       </ul><!-- .signsGrid END-->
     </div> <!-- .wrapper .signsView END -->
-
   </section>
 
   <section class="horoscopeViewSection">
@@ -185,53 +185,53 @@
     <!-- div container, horoscope view -->
     <div class="horoscopeView">
       <div class="wrapper horoscopeFlex">
-        <div class="signsButton" id="aries">
-          <img src="" alt="">
+        <div class="signsButton" id="horoscopeButton">
+            <img src="./assets/aries.png" alt="">
+        </div>
+        <div class="signRange">
+          <h2 class="apiSign">api sign</h2>
+          <p class="apiDateRange">api date_range</p>
         </div>
   
         <div class="horoscope">
-          <!-- horoscope name (API) -->
-          <h2 class="horoscopeName"></h2>
-          <!-- date (API) -->
-          <h3 class="date"></h3>
-          <!-- horoscope (API) -->
-          <p class="horoscopeAPI"></p>
-          <!-- daily luck (API) -->
+          <h3 class="apiCurrentDate">api current_date</h3>
+          <p class="apiDescription">api description; Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo molestias ab, dignissimos suscipit laborum dolore nisi esse, aliquam dolorem dolorum eaque sed ratione rerum delectus aspernatur perferendis reiciendis, laudantium sequi!</p>
+          
           <div class="apiFacts">
             <div>
               <p>Compatibility</p>
-              <p class="factCompatibility"></p>
+              <p class="apiCompatibility">lorem</p>
             </div>
   
             <div>
-              <p>Mood</p>
-              <p class="factMood"></p>
+              <p>Today's Mood</p>
+              <p class="apiMood">lorem</p>
             </div>
   
             <div>
-              <p>Color</p>
-              <p class="factColor"></p>
+              <p>Lucky Color</p>
+              <p class="apiColor">lorem</p>
             </div>
   
             <div>
               <p>Lucky Number</p>
-              <p class="factNumber"></p>
+              <p class="apiLuckyNumber">lorem</p>
             </div>
   
             <div>
               <p>Lucky Time</p>
-              <p class="factTime"></p>
+              <p class="apiLuckyTime">lorem</p>
             </div>
           </div>
-        </div>
-      </div>
+        </div> <!-- .horoscope END -->
+      </div> <!-- .horoscopeFlex .wrapper END -->
   </section>
 
-    <footer>
-      <div class="wrapper">
-        <p>Created at <a href="https://junocollege.com/" target="_blank">Juno College</a></p>
-      </div>
-    </footer>
+  <footer>
+    <div class="wrapper">
+      <p>Created by Sabrina and Dean at ★ <a href="https://junocollege.com/" target="_blank">Juno College</a> ★</p>
+    </div>
+  </footer>
 
     <script src="/javascript/script.js"></script>
 </body>

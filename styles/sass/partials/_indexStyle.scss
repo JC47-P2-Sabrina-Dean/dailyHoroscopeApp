@@ -3,21 +3,35 @@
 // NAVIGATION
 nav {
   display: flex;
-  height: 10vh;
-  display: flex;
-  justify-content: center;
+  // height: 10vh;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
+  width: 100vw;
+
+  div {
+    width: 15%;
+  }
 
   // change star sign 
   .homeButton {
-    display: none;
+    // visibility: hidden;
+    // toggle this to make button reappear in second view, to return to first view
+    font-family: $titleFont;
+    padding: 15px 10px;
+    margin-right: 20%;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    width: 10vw;
   }
 } 
 
 // SIGNS BUTTON SECTION
 .signButtonSection {
-  height: 85vh;
+  height: auto;
+  display: none;
+  // toggle this to make first view disappear
 
   .signsView {
     display: flex;
@@ -25,7 +39,13 @@ nav {
     align-items: center;
     justify-content: center;
     width: 70%;
-    padding-top: 100px;
+    padding-top: 25px;
+
+    .intro {
+      width: 75%;
+      text-align: center;
+      text-justify: inter-word;
+    }
 
     // ul grid for sign buttons
     .signsGrid {
@@ -34,16 +54,16 @@ nav {
       align-items: center;
       flex-wrap: wrap;
       height: 45vh;
-      margin-top: 100px;
+      margin-top: 50px;
   
       .signsCircle {
         width: 160px;
         display: flex;
         align-items: center;
         flex-direction: column;
+        padding: 25px;
   
         .signsButton {
-          border: 0;
           width: 100px;
           border-radius: 50%;
         }
@@ -61,17 +81,87 @@ nav {
 }
 
 // HOROSCOPE SECTION
-
-// horoscope display view
 .horoscopeViewSection {
-  display: none;
-}
+  // display: none;
+  // toggle this to make second view appear
+
+  .horoscopeFlex {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .signsButton {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: $white;
+    }
+
+    .signRange {
+      text-align: center;
+      margin: 10px 0 30px;
+    }
+
+    .apiCurrentDate{
+      padding: 10px 0;
+    }
+
+    .horoscope, .apiDescription {
+      padding: 35px 0;
+    }
+
+    .horoscope {
+      background-color: $white;
+      color: $black;
+      border-radius: 15px;
+      width: 75%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .apiDescription {
+        width: 75%;
+        text-align: center;
+        text-justify: inter-word;
+        justify-self: center;
+      }
+
+      .apiFacts {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 10px 0 0;
+
+        div {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 10vw;
+
+          p {
+            text-align: center;
+            font-family: $headerFont;
+          }
+
+          :first-child {
+            text-decoration: underline;
+            font-size: 1.1rem;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+  }
 
 // FOOTER
 footer {
-  height: 5vh;
   text-align: center;
-  padding: 14px;
   position: fixed;
+  bottom: 0;
   width: 100%;
+  padding: 10px;
 }
