@@ -344,7 +344,6 @@ nav .homeButton {
 
 .signButtonSection {
   height: auto;
-  display: none;
 }
 .signButtonSection .signsView {
   display: -webkit-box;
@@ -382,6 +381,8 @@ nav .homeButton {
       flex-wrap: wrap;
   height: 45vh;
   margin-top: 50px;
+  max-width: 960px;
+  min-width: 320px;
 }
 .signButtonSection .signsView .signsGrid .signsCircle {
   width: 160px;
@@ -396,10 +397,20 @@ nav .homeButton {
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 25px;
+  position: relative;
 }
 .signButtonSection .signsView .signsGrid .signsCircle .signsButton {
   width: 100px;
   border-radius: 50%;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  margin-bottom: 60px;
+}
+.signButtonSection .signsView .signsGrid .signsCircle .signsButton:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 .signButtonSection .signsView .signsGrid .signsCircle .signRange {
   margin-top: 10px;
@@ -414,8 +425,19 @@ nav .homeButton {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: absolute;
+  top: 120px;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  -webkit-transform: scale(0);
+          transform: scale(0);
 }
 
+.horoscopeViewSection {
+  display: none;
+}
 .horoscopeViewSection .horoscopeFlex {
   width: 100%;
   display: -webkit-box;
