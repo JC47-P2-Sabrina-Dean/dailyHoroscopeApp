@@ -24,9 +24,33 @@ const app = {};
                 });
             };
     
+    app.getSignButtons = () => {
+
+        app.signsButtons.forEach((button)=>{
+            button.addEventListener('mouseover', function() {
+                let sign = this.attributes.id.textContent;
+                console.log(sign); // returns signs id eg aries
+                app.signInfo = document.getElementById(`${sign}Info`);
+                console.log(app.signInfo);
+                app.signInfo.style.transform = "scale(1)";
+            })
+        });
+
+        app.signsButtons.forEach((button) => {
+            button.addEventListener('mouseout', function () {
+                let sign = (this.attributes.id.textContent);
+                app.signInfo = document.getElementById(`${sign}Info`);
+                app.signInfo.style.transform = "scale(0)";
+            })
+        });
+
+     };
+
 
     app.init = () => {
+        app.signsButtons = document.querySelectorAll('.signsButton');
         app.getHoroscope();
+        app.getSignButtons();
     }
     
         app.init();
