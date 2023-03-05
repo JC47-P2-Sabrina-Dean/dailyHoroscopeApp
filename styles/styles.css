@@ -381,6 +381,8 @@ nav .homeButton {
       flex-wrap: wrap;
   height: 45vh;
   margin-top: 50px;
+  max-width: 960px;
+  min-width: 320px;
 }
 .signButtonSection .signsView .signsGrid .signsCircle {
   width: 160px;

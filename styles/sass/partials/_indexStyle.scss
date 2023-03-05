@@ -55,6 +55,8 @@ nav {
       flex-wrap: wrap;
       height: 45vh;
       margin-top: 50px;
+      max-width: 960px;
+      min-width: 320px;
   
       .signsCircle {
         width: 160px;
