@@ -15,7 +15,7 @@ nav {
 
   // change star sign 
   .homeButton {
-    // visibility: hidden;
+    visibility: hidden;
     // toggle this to make button reappear in second view, to return to first view
     font-family: $titleFont;
     padding: 15px 10px;
@@ -70,15 +70,14 @@ nav {
           width: 100px;
           border-radius: 50%;
           transition: transform 0.3s ease-in-out;
-          //extra padding for sign range to appear
-          margin-bottom: 60px;
           
           &:hover {
             transform: scale(1.1);
           }
         }
-
+        
         .signRange {
+          padding-bottom: 60px;
           margin-top: 10px;
           text-align: center;
           display: flex;
@@ -179,3 +178,5 @@ footer {
   width: 100%;
   padding: 10px;
 }
+
+// TODO - Fix the padding for the last signs when screen is at 320px
