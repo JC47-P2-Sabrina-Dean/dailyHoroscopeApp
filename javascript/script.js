@@ -1,28 +1,52 @@
 const app = {};
 
-        app.apiURL = "https://aztro.sameerkumar.website";
-        
-        app.apiSign = 'gemini';
-        app.apiDay = 'today';
- 
-        app.getHoroscope = () => {
-        const url = new URL(app.apiURL);
-        url.search = new URLSearchParams({
-                sign: app.apiSign,
-                day: app.apiDay
-            });
+app.apiSelection = document.querySelector('.apiSelection');
+app.apiDateRange = document.querySelector('.apiDateRange');
+app.apiCurrentDate = document.querySelector('.apiCurrentDate');
+app.apiDescription = document.querySelector('.apiDescription');
+app.apiCompatibility = document.querySelector('.apiCompatibility');
+app.apiMood = document.querySelector('.apiMood');
+app.apiColor = document.querySelector('.apiColor');
+app.apiLuckyNumber = document.querySelector('.apiLuckyNumber');
+app.apiLuckyTime = document.querySelector('.apiLuckyTime');
 
-        fetch(url, {method: 'POST'})
-            .then((response) => {
-                    console.log(response);
-                    return response.json();
-                })
-                .then((jsonResult) => {
-                    console.log(jsonResult);
-                    const date = jsonResult.current_date;
-                    console.log(date); 
-                });
-            };
+app.apiImage = document.getElementById('apiImage');
+
+app.apiURL = "https://aztro.sameerkumar.website";
+
+app.apiSign = 'cancer';
+app.apiDay = 'today';
+
+app.getHoroscope = () => {
+    const url = new URL(app.apiURL);
+    url.search = new URLSearchParams({
+        sign: app.apiSign,
+        day: app.apiDay
+    });
+
+    fetch(url, { method: 'POST' })
+        .then((response) => {
+            console.log(response);
+            return response.json();
+        })
+        .then((jsonResult) => {
+            console.log(jsonResult);
+
+            app.apiImage.attributes.src.textContent = `./assets/${app.apiSign}.png`;
+
+            app.apiSelection.innerText = app.apiSign;
+            app.apiDateRange.innerText = jsonResult.date_range;
+
+            app.apiCurrentDate.innerText = jsonResult.current_date;
+            app.apiDescription.innerText = jsonResult.description;
+
+            app.apiCompatibility.innerText = jsonResult.compatibility;
+            app.apiMood.innerText = jsonResult.mood;
+            app.apiColor.innerText = jsonResult.color;
+            app.apiLuckyNumber.innerText = jsonResult.lucky_number;
+            app.apiLuckyTime.innerText = jsonResult.lucky_time;
+        });
+};
     
     // method to change back to the sign button selection screen
      app.changeSign = () => {
@@ -108,7 +132,7 @@ const app = {};
 // horoscope image method
 	// create a forEach() method with an eventListener for each star sign image listening for a click
 // store chosen starsign into a temporary variable
- 
+
 // create init method
 	// should include getHoroscope method but not displayHoroscope method
 	// global variable for user input query select (Form based inputs or image selector?)
