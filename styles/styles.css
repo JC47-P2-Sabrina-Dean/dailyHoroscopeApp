@@ -334,6 +334,9 @@ nav div {
 }
 nav .homeButton {
   visibility: hidden;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  opacity: 1;
   font-family: "Spectral SC", serif;
   padding: 15px 10px;
   margin-right: 20%;
@@ -342,9 +345,20 @@ nav .homeButton {
   font-size: 0.8rem;
   width: 10vw;
 }
+nav .homeButton:hover {
+  background-color: #5FC5BF;
+  background-color: #d673f4;
+}
+nav .homeButton:focus {
+  outline: 5px solid #EFEFEF;
+  background-color: #d673f4;
+}
 
 .signButtonSection {
   height: auto;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  opacity: 1;
 }
 .signButtonSection .signsView {
   display: -webkit-box;
@@ -403,14 +417,15 @@ nav .homeButton {
 .signButtonSection .signsView .signsGrid .signsCircle .signsButton {
   width: 100px;
   border-radius: 50%;
-  -webkit-transition: -webkit-transform 0.3s ease-in-out;
-  transition: -webkit-transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .signButtonSection .signsView .signsGrid .signsCircle .signsButton:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+.signButtonSection .signsView .signsGrid .signsCircle .signsButton:focus {
+  outline: 5px solid #5FC5BF;
 }
 .signButtonSection .signsView .signsGrid .signsCircle .signRange {
   padding-bottom: 60px;
@@ -438,6 +453,9 @@ nav .homeButton {
 
 .horoscopeViewSection {
   display: none;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  opacity: 1;
 }
 .horoscopeViewSection .horoscopeFlex {
   width: 100%;
@@ -452,7 +470,7 @@ nav .homeButton {
       -ms-flex-align: center;
           align-items: center;
 }
-.horoscopeViewSection .signsButton {
+.horoscopeViewSection .horoscopeSignImg {
   width: 100px;
   height: 100px;
   border-radius: 50%;
