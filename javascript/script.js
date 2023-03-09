@@ -50,11 +50,17 @@ app.getHoroscope = () => {
     
     // method to change back to the sign button selection screen
      app.changeSign = () => {
-        console.log(app.changeButton);
         app.changeButton.addEventListener('click', function(){
-            app.horoscopeSection.style.display = 'none';
-            app.changeButton.style.visibility = "hidden";
-            app.signsViewSection.style.display = "block";
+            console.log("click");
+            app.changeButton.style.opacity = "0";
+            app.horoscopeSection.style.opacity = "0";
+
+            setTimeout(function () {
+                app.horoscopeSection.style.display = 'none';
+                app.changeButton.style.visibility = "hidden";
+                app.signsViewSection.style.display = "block";
+                app.signsViewSection.style.opacity = "1";
+            }, 250);
         });
      }
 
@@ -79,6 +85,24 @@ app.getHoroscope = () => {
             })
         });
 
+        // method to display sign info when user hovers over symbol
+        app.signsButtons.forEach((button) => {
+            button.addEventListener('focusin', function () {
+                let sign = this.attributes.id.textContent;
+                app.signInfo = document.getElementById(`${sign}Info`);
+                app.signInfo.style.transform = "scale(1)";
+            })
+        });
+
+        // method to hide sign info when user hovers over symbol
+        app.signsButtons.forEach((button) => {
+            button.addEventListener('focusout', function () {
+                let sign = (this.attributes.id.textContent);
+                app.signInfo = document.getElementById(`${sign}Info`);
+                app.signInfo.style.transform = "scale(0)";
+            })
+        });
+
         // method to iterate through all the sign buttons and listen to which one was clicked. Then changes the screen to that horoscope view
         app.signsButtons.forEach((button) => {
             button.addEventListener('click', function () {
@@ -86,25 +110,27 @@ app.getHoroscope = () => {
                 app.signsViewSection = document.querySelector('.signButtonSection');
                 app.apiSign = this.attributes.id.textContent;
                 console.log("here", app.apiSign);
+                app.signsViewSection.style.opacity = "0";
                 app.getHoroscope();
-                // app.changeButton = document.querySelector('.homeButton');
                 app.changeSign();
-                // app.signButtonSection.style.transform = "opacity(0)";
+                
+                setTimeout(function(){
 
-                app.signsViewSection.style.display="none";
-                app.horoscopeSection.style.display='block';
-                app.changeButton.style.visibility="visible";
+                    app.signsViewSection.style.display="none";
+                    app.horoscopeSection.style.display='block';
+                    app.changeButton.style.visibility="visible";
+                    app.changeButton.style.opacity = "1";
+                    app.horoscopeSection.style.opacity = "1";
+                }, 250);
+
             });
         });
      };
-
-    // TODO - Change the symbol image over the horoscope view depending on the users choice
 
     app.init = () => {
         app.signsButtons = document.querySelectorAll('.signsButton');
         app.changeButton = document.querySelector('.homeButton');
         app.getSignButtons();
-        // app.getHoroscope();
     }
     
         app.init();

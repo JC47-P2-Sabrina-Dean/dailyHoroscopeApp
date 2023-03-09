@@ -17,6 +17,8 @@ nav {
   .homeButton {
     visibility: hidden;
     // toggle this to make button reappear in second view, to return to first view
+    transition: 0.3s ease;
+    opacity: 1;
     font-family: $titleFont;
     padding: 15px 10px;
     margin-right: 20%;
@@ -24,7 +26,18 @@ nav {
     font-weight: bold;
     font-size: 0.8rem;
     width: 10vw;
+
+    &:hover {
+      background-color: $teal;
+      background-color: $purple;
+    }
+
+    &:focus {
+      outline: 5px solid $white;
+      background-color: $purple;
+    }
   }
+
 } 
 
 // SIGNS BUTTON SECTION
@@ -32,8 +45,10 @@ nav {
   height: auto;
   // display: none;
   // toggle this to make first view disappear
-  // transition: opacity 0.3s ease-in-out;
   // transform: opacity(1);
+  transition: 0.3s ease;
+  opacity:1;
+
 
   .signsView {
     display: flex;
@@ -71,10 +86,14 @@ nav {
         .signsButton {
           width: 100px;
           border-radius: 50%;
-          transition: transform 0.3s ease-in-out;
+          transition: all 0.3s ease-in-out;
           
           &:hover {
             transform: scale(1.1);
+          }
+
+          &:focus {
+            outline: 5px solid $teal
           }
         }
         
@@ -99,6 +118,8 @@ nav {
 .horoscopeViewSection {
   display: none;
   // toggle this to make second view appear
+  transition: 0.3s ease-in-out;
+  opacity: 1;
 
   .horoscopeFlex {
     width: 100%;
