@@ -452,7 +452,7 @@ nav .homeButton {
       -ms-flex-align: center;
           align-items: center;
 }
-.horoscopeViewSection .signsButton {
+.horoscopeViewSection .horoscopeSignImg {
   width: 100px;
   height: 100px;
   border-radius: 50%;

@@ -32,6 +32,8 @@ nav {
   height: auto;
   // display: none;
   // toggle this to make first view disappear
+  // transition: opacity 0.3s ease-in-out;
+  // transform: opacity(1);
 
   .signsView {
     display: flex;
@@ -105,7 +107,7 @@ nav {
     align-items: center;
   }
 
-  .signsButton {
+  .horoscopeSignImg {
       width: 100px;
       height: 100px;
       border-radius: 50%;

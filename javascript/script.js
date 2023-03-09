@@ -14,7 +14,7 @@ app.apiImage = document.getElementById('apiImage');
 
 app.apiURL = "https://aztro.sameerkumar.website";
 
-app.apiSign = 'cancer';
+app.apiSign = ''; // based on user input
 app.apiDay = 'today';
 
 app.getHoroscope = () => {
@@ -52,7 +52,6 @@ app.getHoroscope = () => {
      app.changeSign = () => {
         console.log(app.changeButton);
         app.changeButton.addEventListener('click', function(){
-            console.log("click");
             app.horoscopeSection.style.display = 'none';
             app.changeButton.style.visibility = "hidden";
             app.signsViewSection.style.display = "block";
@@ -66,9 +65,7 @@ app.getHoroscope = () => {
         app.signsButtons.forEach((button)=>{
             button.addEventListener('mouseover', function() {
                 let sign = this.attributes.id.textContent;
-                console.log(sign); // returns signs id eg aries
                 app.signInfo = document.getElementById(`${sign}Info`);
-                console.log(app.signInfo);
                 app.signInfo.style.transform = "scale(1)";
             })
         });
@@ -87,8 +84,13 @@ app.getHoroscope = () => {
             button.addEventListener('click', function () {
                 app.horoscopeSection = document.querySelector('.horoscopeViewSection');
                 app.signsViewSection = document.querySelector('.signButtonSection');
+                app.apiSign = this.attributes.id.textContent;
+                console.log("here", app.apiSign);
+                app.getHoroscope();
                 // app.changeButton = document.querySelector('.homeButton');
                 app.changeSign();
+                // app.signButtonSection.style.transform = "opacity(0)";
+
                 app.signsViewSection.style.display="none";
                 app.horoscopeSection.style.display='block';
                 app.changeButton.style.visibility="visible";
@@ -101,8 +103,8 @@ app.getHoroscope = () => {
     app.init = () => {
         app.signsButtons = document.querySelectorAll('.signsButton');
         app.changeButton = document.querySelector('.homeButton');
-        app.getHoroscope();
         app.getSignButtons();
+        // app.getHoroscope();
     }
     
         app.init();
