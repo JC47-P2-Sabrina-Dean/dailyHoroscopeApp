@@ -14,7 +14,7 @@ nav {
   }
 
   // change star sign 
-  .homeButton {
+  .changeButton {
     visibility: hidden;
     // toggle this to make button reappear in second view, to return to first view
     transition: 0.3s ease;
@@ -45,7 +45,6 @@ nav {
   height: auto;
   // display: none;
   // toggle this to make first view disappear
-  // transform: opacity(1);
   transition: 0.3s ease;
   opacity:1;
 
@@ -89,7 +88,7 @@ nav {
           transition: all 0.3s ease-in-out;
           
           &:hover {
-            transform: scale(1.1);
+            transform: scale(1.1, 1.1);
           }
 
           &:focus {
@@ -201,5 +200,3 @@ footer {
   width: 100%;
   padding: 10px;
 }
-
-// TODO - Fix the padding for the last signs when screen is at 320px
