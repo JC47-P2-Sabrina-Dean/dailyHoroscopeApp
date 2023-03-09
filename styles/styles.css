@@ -332,7 +332,7 @@ nav {
 nav div {
   width: 15%;
 }
-nav .homeButton {
+nav .changeButton {
   visibility: hidden;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
@@ -345,11 +345,11 @@ nav .homeButton {
   font-size: 0.8rem;
   width: 10vw;
 }
-nav .homeButton:hover {
+nav .changeButton:hover {
   background-color: #5FC5BF;
   background-color: #d673f4;
 }
-nav .homeButton:focus {
+nav .changeButton:focus {
   outline: 5px solid #EFEFEF;
   background-color: #d673f4;
 }
@@ -421,8 +421,8 @@ nav .homeButton:focus {
   transition: all 0.3s ease-in-out;
 }
 .signButtonSection .signsView .signsGrid .signsCircle .signsButton:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
 }
 .signButtonSection .signsView .signsGrid .signsCircle .signsButton:focus {
   outline: 5px solid #5FC5BF;
