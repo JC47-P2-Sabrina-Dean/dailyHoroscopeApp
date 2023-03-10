@@ -10,7 +10,11 @@ app.getHoroscope = () => {
     fetch(url, { method: 'POST' })
         .then((response) => {
             console.log(response);
-            return response.json();
+            if (response.ok === true) { 
+                return response.json();
+            } else {
+                throw new Error(response.statusText); // 
+            }
         })
         .then((jsonResult) => {
             console.log(jsonResult);
@@ -29,7 +33,11 @@ app.getHoroscope = () => {
             app.apiColor.innerText = jsonResult.color;
             app.apiLuckyNumber.innerText = jsonResult.lucky_number;
             app.apiLuckyTime.innerText = jsonResult.lucky_time;
-        });
+        })
+        .catch ((error) => {
+            alert("Something went wrong, try again later");
+            window.location.reload(true);
+        })
 };
 
 app.hovers = () => {

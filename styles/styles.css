@@ -264,7 +264,7 @@ img {
 
 button {
   border: 0;
-  background-color: #EFEFEF;
+  background-color: #efefef;
   color: #111010;
 }
 
@@ -286,21 +286,23 @@ p {
 }
 
 h1, .intro p, .signRange, footer p {
-  color: #EFEFEF;
+  color: #efefef;
 }
 
 h1 {
   font-family: "Spectral SC", serif;
-  font-size: clamp(2.8125rem, 2.2115rem + 1.9231vw, 3.75rem);
+  font-size: clamp(2rem, 1.4167rem + 2.9167vw, 3.75rem);
   padding: 20px 0;
 }
 
 h2 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 30px;
+  text-align: center;
 }
 
 .signRange p, .apiSignRange {
@@ -309,6 +311,7 @@ h3 {
 
 .apiDescription {
   font-style: italic;
+  font-size: 1.2rem;
 }
 
 footer p {
@@ -342,16 +345,16 @@ nav .changeButton {
   margin-right: 20%;
   border-radius: 15px;
   font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 1rem;
   width: 10vw;
 }
 nav .changeButton:hover {
-  background-color: #5FC5BF;
-  background-color: #d673f4;
+  background-color: #c2c2c2;
+  cursor: pointer;
 }
 nav .changeButton:focus {
-  outline: 5px solid #EFEFEF;
-  background-color: #d673f4;
+  outline: 5px dotted orange;
+  background-color: #c2c2c2;
 }
 
 .signButtonSection {
@@ -386,21 +389,23 @@ nav .changeButton:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  height: 45vh;
+  height: auto;
+  padding-top: 15vh;
   margin-top: 50px;
   max-width: 960px;
   min-width: 320px;
 }
 .signButtonSection .signsView .signsGrid .signsCircle {
   width: 160px;
+  min-height: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -411,8 +416,7 @@ nav .changeButton:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 25px;
-  position: relative;
+  padding: 10px 5px;
 }
 .signButtonSection .signsView .signsGrid .signsCircle .signsButton {
   width: 100px;
@@ -423,12 +427,12 @@ nav .changeButton:focus {
 .signButtonSection .signsView .signsGrid .signsCircle .signsButton:hover {
   -webkit-transform: scale(1.1, 1.1);
           transform: scale(1.1, 1.1);
+  cursor: pointer;
 }
 .signButtonSection .signsView .signsGrid .signsCircle .signsButton:focus {
-  outline: 5px solid #5FC5BF;
+  outline: 5px dotted orange;
 }
 .signButtonSection .signsView .signsGrid .signsCircle .signRange {
-  padding-bottom: 60px;
   margin-top: 10px;
   text-align: center;
   display: -webkit-box;
@@ -441,8 +445,6 @@ nav .changeButton:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: absolute;
-  top: 120px;
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
@@ -459,6 +461,7 @@ nav .changeButton:focus {
 }
 .horoscopeViewSection .horoscopeFlex {
   width: 100%;
+  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -474,7 +477,7 @@ nav .changeButton:focus {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: #EFEFEF;
+  background-color: #efefef;
 }
 .horoscopeViewSection .signRange {
   text-align: center;
@@ -487,7 +490,7 @@ nav .changeButton:focus {
   padding: 35px 0;
 }
 .horoscopeViewSection .horoscope {
-  background-color: #EFEFEF;
+  background-color: #efefef;
   color: #111010;
   border-radius: 15px;
   width: 75%;
@@ -523,7 +526,7 @@ nav .changeButton:focus {
       flex-wrap: wrap;
   padding: 10px 0 0;
 }
-.horoscopeViewSection .horoscope .apiFacts div {
+.horoscopeViewSection .horoscope .apiFacts li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -536,17 +539,13 @@ nav .changeButton:focus {
           align-items: center;
   width: 10vw;
 }
-.horoscopeViewSection .horoscope .apiFacts div p {
+.horoscopeViewSection .horoscope .apiFacts li p {
   text-align: center;
   font-family: "Spectral", serif;
 }
-.horoscopeViewSection .horoscope .apiFacts div :first-child {
-  text-decoration: underline;
-  font-size: 1.1rem;
-  line-height: 30px;
-}
 
 footer {
+  background-color: #000;
   text-align: center;
   position: fixed;
   bottom: 0;
@@ -557,3 +556,20 @@ footer {
 /* =======================
 MEDIA QUERIES
 ======================= */
+@media (max-width: 768px) {
+  .signButtonSection .signsView .signsGrid {
+    padding-bottom: 60px;
+    padding-top: 10px;
+  }
+  .horoscopeViewSection .horoscopeFlex .horoscope {
+    margin-bottom: 100px;
+  }
+  .horoscopeViewSection .horoscopeFlex .horoscope .apiFacts li {
+    padding: 20px 0;
+  }
+}
+@media (max-width: 480px) {
+  .signButtonSection .signsView .intro {
+    width: 100%;
+  }
+}

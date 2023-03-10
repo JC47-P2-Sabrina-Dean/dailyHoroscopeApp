@@ -21,16 +21,18 @@ h1, .intro p, .signRange, footer p {
 
 h1 {
   font-family: $titleFont;
-  font-size: clamp(2.8125rem, 2.2115rem + 1.9231vw, 3.75rem);
+  font-size: clamp(2rem, 1.4167rem + 2.9167vw, 3.75rem);
   padding: 20px 0;
 }
 
 h2 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 30px;
+  text-align: center;
 }
 
 .signRange p, .apiSignRange {
@@ -39,6 +41,7 @@ h3 {
 
 .apiDescription{
   font-style: italic;
+  font-size: 1.2rem;
 }
 
 footer p {
