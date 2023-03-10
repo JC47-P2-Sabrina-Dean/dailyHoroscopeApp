@@ -4,8 +4,32 @@ MEDIA QUERIES
   
 @media (max-width: 960px) {}
   
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+  .signButtonSection .signsView .signsGrid {
+    padding-bottom: 60px;
+    padding-top: 10px;
+  }
+
+    .horoscopeViewSection .horoscopeFlex .horoscope {
+      margin-bottom: 100px;
+
+      .apiFacts {
+        // flex-direction: column;
+        
+
+        li {
+          padding: 20px 0;
+        }
+      }
+    } 
+
+}
   
 @media (max-width: 480px) {
-  // background image repeats or does not repeat
+
+  .signButtonSection .signsView .intro {
+      width: 100%;
+    }
+
+
 }

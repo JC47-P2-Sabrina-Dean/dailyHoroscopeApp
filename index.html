@@ -19,7 +19,7 @@
     <div></div> <!-- extra div to make sure the h1 stays in the center when we flex the whole nave -->
     <h1>Daily Horoscope</h1>
     <div>
-      <button class="changeButton">Change Sign</button>
+      <button class="changeButton">Back</button>
       <!-- this will only appear when the .horoscopeView is visible, otherwise visibility: hidden, add event listener to it--> 
     </div>
   </nav>
@@ -194,35 +194,32 @@
         </div>
   
         <div class="horoscope">
-          <h3 class="apiCurrentDate"></h3>
+          <h2 class="apiCurrentDate"></h2>
           <p class="apiDescription"></p>
-          
-          <div class="apiFacts">
-            <div>
-              <p>Compatibility</p>
+  
+          <ul class="apiFacts">
+            <li>
+              <h3>Soul mate</h3>
               <p class="apiCompatibility"></p>
-            </div>
-  
-            <div>
-              <p>Today's Mood</p>
+            </li>
+            <li>
+              <h3>Today's Mood</h3>
               <p class="apiMood"></p>
-            </div>
-  
-            <div>
-              <p>Lucky Color</p>
+            </li>
+            <li>
+              <h3>Lucky Color</h3>
               <p class="apiColor"></p>
-            </div>
-  
-            <div>
-              <p>Lucky Number</p>
+            </li>
+            <li>
+              <h3>Lucky Number</h3>
               <p class="apiLuckyNumber"></p>
-            </div>
-  
-            <div>
-              <p>Lucky Time</p>
+            </li>
+            <li>
+              <h3>Lucky Time</h3>
               <p class="apiLuckyTime"></p>
-            </div>
-          </div>
+            </li>
+          </ul>
+         
         </div> <!-- .horoscope END -->
       </div> <!-- .horoscopeFlex .wrapper END -->
   </section>
