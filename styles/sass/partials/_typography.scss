@@ -1,0 +1,49 @@
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h2,
+h3 {
+  font-family: $titleFont;
+}
+
+p {
+  font-family: $bodyFont;
+}
+
+h1, .intro p, .signRange, footer p {
+  color: $white;
+} 
+
+h1 {
+  font-family: $titleFont;
+  font-size: clamp(2rem, 1.4167rem + 2.9167vw, 3.75rem);
+  padding: 20px 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  line-height: 30px;
+  text-align: center;
+}
+
+.signRange p, .apiSignRange {
+  font-size: 0.8rem;
+}
+
+.apiDescription{
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+footer p {
+  font-size: 0.75rem;
+}

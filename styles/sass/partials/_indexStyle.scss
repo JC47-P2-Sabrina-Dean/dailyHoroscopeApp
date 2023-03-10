@@ -1,0 +1,201 @@
+/* ====index.html===== */
+
+// NAVIGATION
+nav {
+  display: flex;
+  // height: 10vh;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 100vw;
+
+  div {
+    width: 15%;
+  }
+
+  // change star sign 
+  .changeButton {
+    visibility: hidden;
+    // toggle this to make button reappear in second view, to return to first view
+    transition: 0.3s ease;
+    opacity: 1;
+    font-family: $titleFont;
+    padding: 15px 10px;
+    margin-right: 20%;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 1rem;
+    width: 10vw;
+
+    &:hover {
+      background-color: $grey;
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: 5px dotted orange;
+      background-color: $grey;
+    }
+  }
+
+} 
+
+// SIGNS BUTTON SECTION
+.signButtonSection {
+  height: auto;
+  // display: none;
+  // toggle this to make first view disappear
+  transition: 0.3s ease;
+  opacity:1;
+
+
+  .signsView {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    padding-top: 25px;
+
+    .intro {
+      width: 75%;
+      text-align: center;
+      text-justify: inter-word;
+    }
+
+    // ul grid for sign buttons
+    .signsGrid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      height: auto;
+      padding-top: 15vh;
+      margin-top: 50px;
+      max-width: 960px;
+      min-width: 320px;
+  
+      .signsCircle {
+        width: 160px;
+        min-height: 100px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px 5px;
+        // position: relative;
+               
+        .signsButton {
+          width: 100px;
+          border-radius: 50%;
+          transition: all 0.3s ease-in-out;
+          
+          &:hover {
+            transform: scale(1.1, 1.1);
+            cursor: pointer;
+          }
+
+          &:focus {
+            outline: 5px dotted orange
+
+          }
+        }
+        
+        .signRange {
+          margin-top: 10px;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          // position: absolute;
+          // top: 120px;
+          transition: transform 0.3s ease-in-out;
+          transform: scale(0);
+        }
+      }
+    }
+  }
+}
+
+// HOROSCOPE SECTION
+.horoscopeViewSection {
+  display: none;
+  // toggle this to make second view appear
+  transition: 0.3s ease-in-out;
+  opacity: 1;
+
+  .horoscopeFlex {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .horoscopeSignImg {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: $white;
+    }
+
+    .signRange {
+      text-align: center;
+      margin: 10px 0 30px;
+    }
+
+    .apiCurrentDate{
+      padding: 10px 0;
+    }
+
+    .horoscope, .apiDescription {
+      padding: 35px 0;
+    }
+
+    .horoscope {
+      background-color: $white;
+      color: $black;
+      border-radius: 15px;
+      width: 75%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .apiDescription {
+        width: 75%;
+        text-align: center;
+        text-justify: inter-word;
+        justify-self: center;
+      }
+
+      .apiFacts {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 10px 0 0;
+
+        li {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 10vw;
+
+          p {
+            text-align: center;
+            font-family: $headerFont;
+          }
+        }
+      }
+    }
+  }
+
+// FOOTER
+footer {
+  background-color: #000;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+}
