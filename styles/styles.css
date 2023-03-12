@@ -333,9 +333,9 @@ nav {
   width: 100vw;
 }
 nav div {
-  width: 15%;
+  width: 20%;
 }
-nav .changeButton {
+nav .backButton {
   visibility: hidden;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
@@ -348,11 +348,11 @@ nav .changeButton {
   font-size: 1rem;
   width: 10vw;
 }
-nav .changeButton:hover {
+nav .backButton:hover {
   background-color: #c2c2c2;
   cursor: pointer;
 }
-nav .changeButton:focus {
+nav .backButton:focus {
   outline: 5px dotted orange;
   background-color: #c2c2c2;
 }
@@ -398,7 +398,7 @@ nav .changeButton:focus {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   height: auto;
-  padding-top: 15vh;
+  padding-top: 5vh;
   margin-top: 50px;
   max-width: 960px;
   min-width: 320px;
@@ -459,9 +459,7 @@ nav .changeButton:focus {
   transition: 0.3s ease-in-out;
   opacity: 1;
 }
-.horoscopeViewSection .horoscopeFlex {
-  width: 100%;
-  height: auto;
+.horoscopeViewSection .horoscopeViewHeader {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -472,28 +470,14 @@ nav .changeButton:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-bottom: 20px;
 }
-.horoscopeViewSection .horoscopeSignImg {
+.horoscopeViewSection .horoscopeViewHeader .horoscopeSignImg {
   width: 100px;
-  height: 100px;
   border-radius: 50%;
   background-color: #efefef;
 }
-.horoscopeViewSection .signRange {
-  text-align: center;
-  margin: 10px 0 30px;
-}
-.horoscopeViewSection .apiCurrentDate {
-  padding: 10px 0;
-}
-.horoscopeViewSection .horoscope, .horoscopeViewSection .apiDescription {
-  padding: 35px 0;
-}
-.horoscopeViewSection .horoscope {
-  background-color: #efefef;
-  color: #111010;
-  border-radius: 15px;
-  width: 75%;
+.horoscopeViewSection .horoscopeViewHeader .signRange {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -504,14 +488,79 @@ nav .changeButton:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-align: center;
+  margin: 10px 0 30px;
 }
-.horoscopeViewSection .horoscope .apiDescription {
+.horoscopeViewSection .horoscopeView {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+.horoscopeViewSection .horoscopeView .horoscopeFlex {
+  background-color: #efefef;
+  color: #111010;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 10px;
+  padding: 25px 0 5px;
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5 0 auto;
+          flex: 0.5 0 auto;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+.horoscopeViewSection .horoscopeView .horoscopeFlex:hover {
+  background-color: #c2c2c2;
+  cursor: pointer;
+}
+.horoscopeViewSection .horoscopeView .horoscopeFlex:focus {
+  outline: 5px dotted orange;
+  background-color: #c2c2c2;
+}
+.horoscopeViewSection .horoscopeView .horoscopeFlex .date {
+  text-orientation: upright;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+}
+.horoscopeViewSection .horoscopeView .horoscopeFlex .date.open, .horoscopeViewSection .horoscopeView .horoscopeFlex .apiCurrentDate {
+  -webkit-writing-mode: horizontal-tb;
+      -ms-writing-mode: lr-tb;
+          writing-mode: horizontal-tb;
+  text-orientation: initial;
+}
+.horoscopeViewSection .horoscopeView .horoscopeFlex .apiDescription {
+  display: none;
+}
+.horoscopeViewSection .horoscopeView .horoscopeFlex .apiDescription.open {
+  display: block;
+  padding: 35px 0;
   width: 75%;
   text-align: center;
   text-justify: inter-word;
   justify-self: center;
 }
-.horoscopeViewSection .horoscope .apiFacts {
+.horoscopeViewSection .horoscopeView .horoscopeFlex .apiFacts {
+  display: none;
+}
+.horoscopeViewSection .horoscopeView .horoscopeFlex .apiFacts.open {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -526,7 +575,7 @@ nav .changeButton:focus {
       flex-wrap: wrap;
   padding: 10px 0 0;
 }
-.horoscopeViewSection .horoscope .apiFacts li {
+.horoscopeViewSection .horoscopeView .horoscopeFlex .apiFacts.open li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -537,11 +586,25 @@ nav .changeButton:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 10vw;
+  width: 8vw;
 }
-.horoscopeViewSection .horoscope .apiFacts li p {
+.horoscopeViewSection .horoscopeView .horoscopeFlex .apiFacts.open li p {
   text-align: center;
   font-family: "Spectral", serif;
+}
+.horoscopeViewSection .horoscopeView .horoscopeFlex.open {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+  cursor: auto;
+}
+.horoscopeViewSection .horoscopeView .horoscopeFlex.open:hover {
+  background-color: #efefef;
+  cursor: auto;
+}
+.horoscopeViewSection .horoscopeView .horoscopeFlex.open:focus {
+  outline: none;
+  background-color: none;
 }
 
 footer {
