@@ -143,7 +143,6 @@ app.hovers = () => {
 // method to change back to the sign button selection screen
 app.changeSign = () => {
     app.backButton.addEventListener('click', function () {
-        console.log('click');
         app.backButton.style.opacity = '0';
         app.horoscopeSection.style.opacity = '0';
 
@@ -153,6 +152,19 @@ app.changeSign = () => {
             app.backButton.style.visibility = 'hidden';
             app.signsViewSection.style.display = 'block';
             app.signsViewSection.style.opacity = '1';
+            
+            // default to today, remove open from yesterday and tomorrow
+            const today = Array.from(app.today);
+            today.forEach((item) => {
+                item.classList.add('open');
+            })
+
+            const yesterday = Array.from(app.yesterday);
+            const tomorrow = Array.from(app.tomorrow);
+            const remove = yesterday.concat(tomorrow);
+            remove.forEach((item) => {
+                item.classList.remove('open');
+            });
         }, 250);
     });
 }
@@ -185,18 +197,29 @@ app.getSignButtons = () => {
 
 
 app.toggleHoroscope = () => {
-    function toggleCards() {
-        // app.horoscopePanels.classList.remove('open');
-        // app.horoscopePanels.children.classList.remove('open');
-        this.classList.toggleClass('open');
-        this.children.classList.toggle('open');  
-    };
-
+    // listen for each panel
     app.horoscopePanels.forEach((panel) => {
-        console.log('hello');
-        panel.addEventListener('click', toggleCards());
+        panel.addEventListener('click', function () {
+            // remove .open off for all panels and children
+            const today = Array.from(app.today);
+            const yesterday = Array.from(app.yesterday);
+            const tomorrow = Array.from(app.tomorrow);
+            const removeOpen = today.concat(yesterday, tomorrow);
+
+            removeOpen.forEach((item) => {
+                item.classList.remove('open');
+            });
+
+            // add .open to clicked panel
+            this.classList.add('open');
+            // add .open to clicked panel's children
+            const panelChildren = Array.from(this.children);
+            panelChildren.forEach((child) => {
+                child.classList.add('open');
+            });
+        });
     });
-};
+}
 
 app.init = () => {
     app.signsButtons = document.querySelectorAll('.signsButton');
@@ -220,6 +243,8 @@ app.init = () => {
     app.apiNumberToday = document.querySelector('.apiLuckyNumberToday');
     app.apiTimeToday = document.querySelector('.apiLuckyTimeToday');
 
+    app.today = document.querySelectorAll('.today');
+
     // yesterday
     app.apiDescriptionYesterday = document.querySelector('.apiDescriptionYesterday');
     app.apiCompatibilityYesterday = document.querySelector('.apiCompatibilityYesterday');
@@ -228,6 +253,8 @@ app.init = () => {
     app.apiNumberYesterday = document.querySelector('.apiLuckyNumberYesterday');
     app.apiTimeYesterday = document.querySelector('.apiLuckyTimeYesterday');
 
+    app.yesterday = document.querySelectorAll('.yesterday');
+
     // tomorrow
     app.apiDescriptionTomorrow = document.querySelector('.apiDescriptionTomorrow');
     app.apiCompatibilityTomorrow = document.querySelector('.apiCompatibilityTomorrow');
@@ -235,6 +262,8 @@ app.init = () => {
     app.apiColorTomorrow = document.querySelector('.apiColorTomorrow');
     app.apiNumberTomorrow = document.querySelector('.apiLuckyNumberTomorrow');
     app.apiTimeTomorrow = document.querySelector('.apiLuckyTimeTomorrow');
+
+    app.tomorrow = document.querySelectorAll('.tomorrow');
     
     app.apiURL = 'https://aztro.sameerkumar.website';
 
