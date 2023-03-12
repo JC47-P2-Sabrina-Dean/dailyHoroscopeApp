@@ -3,13 +3,13 @@
 // NAVIGATION
 nav {
   display: flex;
-  // height: 10vh;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
   width: 100vw;
 
   div {
+    visibility: hidden;
     width: 20%;
   }
 
@@ -21,7 +21,6 @@ nav {
     opacity: 1;
     font-family: $titleFont;
     padding: 15px 10px;
-    margin-right: 20%;
     border-radius: 15px;
     font-weight: bold;
     font-size: 1rem;
@@ -33,11 +32,10 @@ nav {
     }
 
     &:focus {
-      outline: 5px dotted orange;
       background-color: $grey;
+      outline: 5px dotted orange;
     }
   }
-
 } 
 
 // SIGNS BUTTON SECTION
@@ -47,7 +45,6 @@ nav {
   // toggle this to make first view disappear
   transition: 0.3s ease;
   opacity:1;
-
 
   .signsView {
     display: flex;
@@ -82,7 +79,6 @@ nav {
         align-items: center;
         flex-direction: column;
         padding: 10px 5px;
-        // position: relative;
         
         .signsButton {
           width: 100px;
@@ -105,8 +101,6 @@ nav {
           display: flex;
           flex-direction: column;
           align-items: center;
-          // position: absolute;
-          // top: 120px;
           transition: transform 0.3s ease-in-out;
           transform: scale(0);
         }

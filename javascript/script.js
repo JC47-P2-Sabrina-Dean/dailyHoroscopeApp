@@ -104,40 +104,43 @@ app.getHoroscopeTomorrow = () => {
 
 app.hovers = () => {
     // method to display sign info when user mouseovers symbol
-    app.signsButtons.forEach((button) => {
-        button.addEventListener('mouseover', function () {
-            let sign = this.attributes.id.textContent;
-            app.signInfo = document.getElementById(`${sign}Info`);
-            app.signInfo.style.transform = 'scale(1, 1)';
-        })
-    });
+    // if screen is big
+    if (app.width > 960) {
+        app.signsButtons.forEach((button) => {
+            button.addEventListener('mouseover', function () {
+                let sign = this.attributes.id.textContent;
+                app.signInfo = document.getElementById(`${sign}Info`);
+                app.signInfo.style.transform = 'scale(1, 1)';
+            })
+        });
 
-    // method to hide sign info when user mouseout of symbol
-    app.signsButtons.forEach((button) => {
-        button.addEventListener('mouseout', function () {
-            let sign = (this.attributes.id.textContent);
-            app.signInfo = document.getElementById(`${sign}Info`);
-            app.signInfo.style.transform = 'scale(0)';
-        })
-    });
+        // method to hide sign info when user mouseout of symbol
+        app.signsButtons.forEach((button) => {
+            button.addEventListener('mouseout', function () {
+                let sign = (this.attributes.id.textContent);
+                app.signInfo = document.getElementById(`${sign}Info`);
+                app.signInfo.style.transform = 'scale(0)';
+            })
+        });
 
-    // method to display sign info when user focus in on symbol
-    app.signsButtons.forEach((button) => {
-        button.addEventListener('focusin', function () {
-            let sign = this.attributes.id.textContent;
-            app.signInfo = document.getElementById(`${sign}Info`);
-            app.signInfo.style.transform = 'scale(1, 1)';
-        })
-    });
+        // method to display sign info when user focus in on symbol
+        app.signsButtons.forEach((button) => {
+            button.addEventListener('focusin', function () {
+                let sign = this.attributes.id.textContent;
+                app.signInfo = document.getElementById(`${sign}Info`);
+                app.signInfo.style.transform = 'scale(1, 1)';
+            })
+        });
 
-    // method to hide sign info when user focus out on symbol
-    app.signsButtons.forEach((button) => {
-        button.addEventListener('focusout', function () {
-            let sign = (this.attributes.id.textContent);
-            app.signInfo = document.getElementById(`${sign}Info`);
-            app.signInfo.style.transform = 'scale(0)';
-        })
-    });
+        // method to hide sign info when user focus out on symbol
+        app.signsButtons.forEach((button) => {
+            button.addEventListener('focusout', function () {
+                let sign = (this.attributes.id.textContent);
+                app.signInfo = document.getElementById(`${sign}Info`);
+                app.signInfo.style.transform = 'scale(0)';
+            })
+        });
+    }
 }
 
 // method to change back to the sign button selection screen
@@ -153,18 +156,20 @@ app.changeSign = () => {
             app.signsViewSection.style.display = 'block';
             app.signsViewSection.style.opacity = '1';
             
-            // default to today, remove open from yesterday and tomorrow
-            const today = Array.from(app.today);
-            today.forEach((item) => {
-                item.classList.add('open');
-            })
+            // default to today, remove open from yesterday and tomorrow (for big screens)
+            if (app.width > 960) {
+                const today = Array.from(app.today);
+                today.forEach((item) => {
+                    item.classList.add('open');
+                })
 
-            const yesterday = Array.from(app.yesterday);
-            const tomorrow = Array.from(app.tomorrow);
-            const remove = yesterday.concat(tomorrow);
-            remove.forEach((item) => {
-                item.classList.remove('open');
-            });
+                const yesterday = Array.from(app.yesterday);
+                const tomorrow = Array.from(app.tomorrow);
+                const remove = yesterday.concat(tomorrow);
+                remove.forEach((item) => {
+                    item.classList.remove('open');
+                });
+            }
         }, 250);
     });
 }
@@ -199,14 +204,16 @@ app.getSignButtons = () => {
 app.toggleHoroscope = () => {
     // listen for each panel
     app.horoscopePanels.forEach((panel) => {
+        const today = Array.from(app.today);
+        const yesterday = Array.from(app.yesterday);
+        const tomorrow = Array.from(app.tomorrow);
+        const allOpen = today.concat(yesterday, tomorrow);
+
+        // if window width is more than 960px
+        if (app.width > 960) {
         panel.addEventListener('click', function () {
             // remove .open off for all panels and children
-            const today = Array.from(app.today);
-            const yesterday = Array.from(app.yesterday);
-            const tomorrow = Array.from(app.tomorrow);
-            const removeOpen = today.concat(yesterday, tomorrow);
-
-            removeOpen.forEach((item) => {
+            allOpen.forEach((item) => {
                 item.classList.remove('open');
             });
 
@@ -217,7 +224,13 @@ app.toggleHoroscope = () => {
             panelChildren.forEach((child) => {
                 child.classList.add('open');
             });
-        });
+        })
+        // if screen is smaller, just display everything
+        } else {
+            allOpen.forEach((item) => {
+                item.classList.add('open');
+            });
+        }
     });
 }
 
@@ -268,6 +281,8 @@ app.init = () => {
     app.apiURL = 'https://aztro.sameerkumar.website';
 
     app.apiSign = ''; // based on user input
+
+    app.width = window.innerWidth;
 
     app.hovers();
     app.getSignButtons();
