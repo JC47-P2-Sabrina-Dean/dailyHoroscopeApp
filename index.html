@@ -19,7 +19,7 @@
     <div></div> <!-- extra div to make sure the h1 stays in the center when we flex the whole nave -->
     <h1>Daily Horoscope</h1>
     <div>
-      <button class="changeButton">Back</button>
+      <button class="backButton">Back</button>
       <!-- this will only appear when the .horoscopeView is visible, otherwise visibility: hidden, add event listener to it--> 
     </div>
   </nav>
@@ -180,48 +180,109 @@
     </div> <!-- .wrapper .signsView END -->
   </section>
 
-  <section class="horoscopeViewSection">
+  <section class="wrapper horoscopeViewSection">
 
-    <!-- div container, horoscope view -->
-    <div class="horoscopeView">
-      <div class="wrapper horoscopeFlex">
+    <div class="horoscopeViewHeader">
         <div class="horoscopeSignImg" id="horoscopeButton">
-            <img src="" alt="" id="apiImage">
+          <img src="assets/aries.png" alt="" class="apiImage">
         </div>
+
         <div class="signRange">
           <h2 class="apiSelection"></h2>
           <p class="apiDateRange"></p>
         </div>
-  
-        <div class="horoscope">
-          <h2 class="apiCurrentDate"></h2>
-          <p class="apiDescription"></p>
-  
-          <ul class="apiFacts">
-            <li>
-              <h3>Soul mate</h3>
-              <p class="apiCompatibility"></p>
-            </li>
-            <li>
-              <h3>Today's Mood</h3>
-              <p class="apiMood"></p>
-            </li>
-            <li>
-              <h3>Lucky Color</h3>
-              <p class="apiColor"></p>
-            </li>
-            <li>
-              <h3>Lucky Number</h3>
-              <p class="apiLuckyNumber"></p>
-            </li>
-            <li>
-              <h3>Lucky Time</h3>
-              <p class="apiLuckyTime"></p>
-            </li>
-          </ul>
-         
-        </div> <!-- .horoscope END -->
-      </div> <!-- .horoscopeFlex .wrapper END -->
+    </div>
+    
+    <!-- horoscope boxes - flexbox -->
+    <div class=" horoscopeView">
+      <!-- yesterday's horoscope -->
+      <div class="yesterday horoscopeFlex">
+        <h2 class="yesterday date">Yesterday</h2>
+        <p class="yesterday apiDescriptionYesterday apiDescription"></p>
+    
+        <ul class="yesterday apiFacts">
+          <li>
+            <h3>Soul mate</h3>
+            <p class="apiCompatibilityYesterday apiCompatibility"></p>
+          </li>
+          <li>
+            <h3>Today's Mood</h3>
+            <p class="apiMoodYesterday apiMood"></p>
+          </li>
+          <li>
+            <h3>Lucky Color</h3>
+            <p class="apiColorYesterday apiColor"></p>
+          </li>
+          <li>
+            <h3>Lucky Number</h3>
+            <p class="apiLuckyNumberYesterday apiLuckyNumber"></p>
+          </li>
+          <li>
+            <h3>Lucky Time</h3>
+            <p class="apiLuckyTimeYesterday apiLuckyTime"></p>
+          </li>
+        </ul>
+      </div> <!-- .yesterday .horoscopeFlex -->
+
+      <!-- today's horoscope -->
+      <div class="today horoscopeFlex open">
+        <h2 class="today date apiCurrentDate open"></h2>
+        <p class="today apiDescriptionToday apiDescription open"></p>
+
+        <ul class="today apiFacts open">
+          <li>
+            <h3>Soul Mate</h3>
+            <p class="apiCompatibilityToday apiCompatibility"></p>
+          </li>
+          <li>
+            <h3>Today's Mood</h3>
+            <p class="apiMoodToday apiMood"></p>
+          </li>
+          <li>
+            <h3>Lucky Color</h3>
+            <p class="apiColorToday apiColor"></p>
+          </li>
+          <li>
+            <h3>Lucky Number</h3>
+            <p class="apiLuckyNumberToday apiLuckyNumber"></p>
+          </li>
+          <li>
+            <h3>Lucky Time</h3>
+            <p class="apiLuckyTimeToday apiLuckyTime"></p>
+          </li>
+        </ul>
+      </div> <!-- .today .horoscopeFlex -->
+        
+
+      <!-- tomorrow's hororscope -->
+      <div class="tomorrow horoscopeFlex">      
+        <h2 class="tomorrow date">Tomorrow</h2>
+        <p class="tomorrow apiDescriptionTomorrow apiDescription"></p>
+    
+        <ul class="tomorrow apiFacts">
+          <li>
+            <h3>Soul mate</h3>
+            <p class="apiCompatibilityTomorrow apiCompatibility"></p>
+          </li>
+          <li>
+            <h3>Today's Mood</h3>
+            <p class="apiMoodTomorrow apiMood"></p>
+          </li>
+          <li>
+            <h3>Lucky Color</h3>
+            <p class="apiColorTomorrow apiColor"></p>
+          </li>
+          <li>
+            <h3>Lucky Number</h3>
+            <p class="apiLuckyNumberTomorrow apiLuckyNumber"></p>
+          </li>
+          <li>
+            <h3>Lucky Time</h3>
+            <p class="apiLuckyTimeTomorrow apiLuckyTime"></p>
+          </li>
+        </ul>
+      </div> <!-- .tomorrow .horoscopeFlex -->
+    </div> <!-- .horoscopeView END -->
   </section>
 
   <footer>

@@ -3,25 +3,24 @@
 // NAVIGATION
 nav {
   display: flex;
-  // height: 10vh;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
   width: 100vw;
 
   div {
-    width: 15%;
+    visibility: hidden;
+    width: 20%;
   }
 
   // change star sign 
-  .changeButton {
+  .backButton {
     visibility: hidden;
     // toggle this to make button reappear in second view, to return to first view
     transition: 0.3s ease;
     opacity: 1;
     font-family: $titleFont;
     padding: 15px 10px;
-    margin-right: 20%;
     border-radius: 15px;
     font-weight: bold;
     font-size: 1rem;
@@ -33,11 +32,10 @@ nav {
     }
 
     &:focus {
-      outline: 5px dotted orange;
       background-color: $grey;
+      outline: 5px dotted orange;
     }
   }
-
 } 
 
 // SIGNS BUTTON SECTION
@@ -47,7 +45,6 @@ nav {
   // toggle this to make first view disappear
   transition: 0.3s ease;
   opacity:1;
-
 
   .signsView {
     display: flex;
@@ -70,7 +67,7 @@ nav {
       align-items: center;
       flex-wrap: wrap;
       height: auto;
-      padding-top: 15vh;
+      padding-top: 5vh;
       margin-top: 50px;
       max-width: 960px;
       min-width: 320px;
@@ -82,8 +79,7 @@ nav {
         align-items: center;
         flex-direction: column;
         padding: 10px 5px;
-        // position: relative;
-               
+        
         .signsButton {
           width: 100px;
           border-radius: 50%;
@@ -95,8 +91,7 @@ nav {
           }
 
           &:focus {
-            outline: 5px dotted orange
-
+            outline: 5px dotted orange;
           }
         }
         
@@ -106,8 +101,6 @@ nav {
           display: flex;
           flex-direction: column;
           align-items: center;
-          // position: absolute;
-          // top: 120px;
           transition: transform 0.3s ease-in-out;
           transform: scale(0);
         }
@@ -123,72 +116,119 @@ nav {
   transition: 0.3s ease-in-out;
   opacity: 1;
 
-  .horoscopeFlex {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .horoscopeSignImg {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background-color: $white;
-    }
-
-    .signRange {
-      text-align: center;
-      margin: 10px 0 30px;
-    }
-
-    .apiCurrentDate{
-      padding: 10px 0;
-    }
-
-    .horoscope, .apiDescription {
-      padding: 35px 0;
-    }
-
-    .horoscope {
-      background-color: $white;
-      color: $black;
-      border-radius: 15px;
-      width: 75%;
+    .horoscopeViewHeader {
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding-bottom: 20px;
 
-      .apiDescription {
-        width: 75%;
-        text-align: center;
-        text-justify: inter-word;
-        justify-self: center;
+      .horoscopeSignImg {
+        width: 100px;
+        border-radius: 50%;
+        background-color: $white;
       }
 
-      .apiFacts {
-        width: 100%;
+      .signRange {
         display: flex;
-        justify-content: space-evenly;
+        flex-direction: column;
         align-items: center;
-        flex-wrap: wrap;
-        padding: 10px 0 0;
+        text-align: center;
+        margin: 10px 0 30px;
+      }
+    }
 
-        li {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          width: 10vw;
+  .horoscopeView {
+    display: flex;
+    align-items: stretch;
 
-          p {
-            text-align: center;
-            font-family: $headerFont;
-          }
+    .horoscopeFlex {
+      background-color: $white;
+      color: $black;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 10px;
+      padding: 25px 0 5px;
+      flex: 0.5;
+
+      &:hover {
+          background-color: $grey;
+          cursor: pointer;
+        }
+      
+      &:focus {
+        outline: 5px dotted orange;
+        background-color: $grey;
+      }
+    }
+
+    .horoscopeFlex.open {
+      flex: 3;
+      cursor: auto;
+
+      &:hover {
+        background-color: none;
+        cursor: auto;
+      }
+
+      &:focus {
+        outline: none;
+        background-color: none;
+      }
+    }
+      
+    .date{
+      text-orientation: upright;
+      writing-mode: vertical-rl;
+    }
+
+    .date.open, .apiCurrentDate{
+      writing-mode: horizontal-tb;
+      text-orientation: initial;
+      text-align: center;
+    }
+
+    .apiDescription{
+      display: none;
+      }
+
+    .apiDescription.open {
+      display: block;
+      padding: 35px 0;
+      width: 75%;
+      text-align: center;
+      text-justify: inter-word;
+      justify-self: center;
+    }
+
+    .apiFacts {
+      display: none;
+    }
+    
+    .apiFacts.open{
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 10px 0 0;
+  
+      li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 8vw;
+  
+        p {
+          text-align: center;
+          font-family: $headerFont;
         }
       }
     }
   }
+}
 
 // FOOTER
 footer {
