@@ -43,6 +43,7 @@ app.getStarSign = (date) => {
             app.apiSign = app.starSignArr[i].sign;
             console.log(app.apiSign);
         } else {
+            // hard coded as the default if error
             app.apiSign = 'Capricorn';
         }
     }
@@ -303,7 +304,6 @@ app.init = () => {
     app.openModal = document.querySelector("#choose");
     app.modal = document.querySelector("#modal");
     const closeModal = document.querySelector("#yes");
-    app.userStarSign = "";
     app.enter = document.querySelector("#enter");
 
     app.starSignArr = [
