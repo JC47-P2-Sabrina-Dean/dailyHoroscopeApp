@@ -451,6 +451,70 @@ nav .backButton:focus {
   -webkit-transform: scale(0);
           transform: scale(0);
 }
+.signButtonSection .starSignSelector {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 15px;
+}
+.signButtonSection .starSignSelector p {
+  color: #efefef;
+  padding-top: 30px;
+}
+.signButtonSection .starSignSelector .button {
+  -ms-flex-item-align: center;
+      align-self: center;
+  padding: 0.5em 1em;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.signButtonSection .starSignSelector .button:hover {
+  background-color: #c2c2c2;
+}
+.signButtonSection .starSignSelector .button:focus {
+  background-color: #c2c2c2;
+  outline: 5px dotted orange;
+}
+.signButtonSection .modal {
+  width: 350px;
+  border-radius: 20px;
+  padding: 40px;
+}
+.signButtonSection .modal::-webkit-backdrop {
+  background: rgba(0, 0, 0, 0.8);
+}
+.signButtonSection .modal::backdrop {
+  background: rgba(0, 0, 0, 0.8);
+}
+.signButtonSection .modal .formContainer form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 15px;
+}
+.signButtonSection .modal .formContainer p {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.signButtonSection .modal .formContainer button {
+  padding: 0.5em 1em;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.signButtonSection .modal .formContainer button:hover {
+  background-color: #c2c2c2;
+}
+.signButtonSection .modal .formContainer button:focus {
+  background-color: #c2c2c2;
+  outline: 5px dotted orange;
+}
 
 .horoscopeViewSection {
   display: none;

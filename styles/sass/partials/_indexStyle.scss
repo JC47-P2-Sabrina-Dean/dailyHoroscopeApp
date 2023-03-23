@@ -107,6 +107,73 @@ nav {
       }
     }
   }
+
+  .starSignSelector {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    p {
+      color: $white;
+      padding-top: 30px;
+    }
+
+    .button {
+      align-self: center;
+      padding: 0.5em 1em;
+      border-radius: 15px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $grey;
+      }
+
+      &:focus {
+        background-color: $grey;
+        outline: 5px dotted orange;
+      }
+    }
+
+  }
+  .modal {
+    // max-width: 50ch;
+    width: 350px;
+    // height: 200px;
+    border-radius: 20px;
+    padding: 40px;
+
+    &::backdrop {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .formContainer {
+      form {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      p {
+        text-align: center;
+        padding-bottom: 20px;
+      }
+
+      button {
+        padding: 0.5em 1em;
+        border-radius: 15px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $grey;
+        }
+        
+        &:focus {
+          background-color: $grey;
+          outline: 5px dotted orange;
+        }
+      }
+    }
+  }
 }
 
 // HOROSCOPE SECTION

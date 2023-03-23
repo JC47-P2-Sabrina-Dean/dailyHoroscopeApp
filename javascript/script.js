@@ -1,5 +1,53 @@
 const app = {};
 
+app.enterBirthday = () => {
+    app.openModal.addEventListener("click", () => {
+        app.modal.showModal();
+    });
+}
+
+app.handleClick = function(event) {
+    event.preventDefault();
+    modal.close();
+    // find the value of the month select and store in a variable
+    let month = Number(document.querySelector("#month").value);
+    // find the value of the day select and store in a variable 
+    let day = Number(document.querySelector("#day").value);
+    let monthDay = new Date(app.currentYear, month, day);
+    app.getStarSign(monthDay);
+    console.log('getStarSign',monthDay);
+
+    // switch to other page
+    app.getHoroscopeYesterday();
+    app.getHoroscopeToday();
+    app.getHoroscopeTomorrow();
+    app.changeSign();
+    setTimeout(function () {
+        app.signsViewSection.style.display = 'none';
+        app.horoscopeSection.style.display = 'block';
+        app.backButton.style.visibility = 'visible';
+        app.backButton.style.opacity = '1';
+        app.horoscopeSection.style.opacity = '1';
+    }, 250);
+}
+
+app.submitUserDate = () => {
+    app.enter.addEventListener("click", app.handleClick);
+}
+
+// Method to compare users birthday with star sign array
+app.getStarSign = (date) => {
+    console.log('array length', app.starSignArr.length);
+    for (let i = 0; i < app.starSignArr.length; i++) {
+        if (date >= app.starSignArr[i].start && date <= app.starSignArr[i].end) {
+            app.apiSign = app.starSignArr[i].sign;
+            console.log(app.apiSign);
+        } else {
+            app.apiSign = 'Capricorn';
+        }
+    }
+}
+
 app.getHoroscopeToday = () => {
     const url = new URL(app.apiURL);
     url.search = new URLSearchParams({
@@ -148,6 +196,7 @@ app.changeSign = () => {
     app.backButton.addEventListener('click', function () {
         app.backButton.style.opacity = '0';
         app.horoscopeSection.style.opacity = '0';
+        app.apiSign = '';
 
         // gives opacity transition time, then switch views back
         setTimeout(function() {
@@ -248,6 +297,78 @@ app.init = () => {
     app.apiDateRange = document.querySelector('.apiDateRange');
     app.apiCurrentDate = document.querySelector('.apiCurrentDate');
 
+    // star sign chooser
+    app.todaysDate = new Date();
+    app.currentYear = app.todaysDate.getFullYear();
+    app.openModal = document.querySelector("#choose");
+    app.modal = document.querySelector("#modal");
+    const closeModal = document.querySelector("#yes");
+    app.userStarSign = "";
+    app.enter = document.querySelector("#enter");
+
+    app.starSignArr = [
+        {
+            sign: 'aries',
+            start: new Date(app.currentYear, 2, 21), // march 21
+            end: new Date(app.currentYear, 3, 19)
+        }, //'april 19
+        {
+            sign: 'taurus',
+            start: new Date(app.currentYear, 3, 20), // april 20
+            end: new Date(app.currentYear, 4, 20)
+        }, // may 20
+        {
+            sign: 'gemini',
+            start: new Date(app.currentYear, 4, 21), // may 21
+            end: new Date(app.currentYear, 5, 20)
+        }, // june 20
+        {
+            sign: 'cancer',
+            start: new Date(app.currentYear, 5, 21), // june 21
+            end: new Date(app.currentYear, 6, 22)
+        }, // july 22
+        {
+            sign: 'leo',
+            start: new Date(app.currentYear, 6, 23), // july 23
+            end: new Date(app.currentYear, 7, 22)
+        }, // august 22
+        {
+            sign: 'virgo',
+            start: new Date(app.currentYear, 7, 23), // august 23
+            end: new Date(app.currentYear, 8, 22)
+        }, // september 22
+        {
+            sign: 'libra',
+            start: new Date(app.currentYear, 8, 23), // september 23
+            end: new Date(app.currentYear, 9, 22)
+        }, // october 22
+        {
+            sign: 'scorpio',
+            start: new Date(app.currentYear, 9, 23), // october 23
+            end: new Date(app.currentYear, 10, 21)
+        }, // november 21
+        {
+            sign: 'sagittarius',
+            start: new Date(app.currentYear, 10, 22), // november 22
+            end: new Date(app.currentYear, 11, 21)
+        }, // december 21
+        {
+            sign: 'capricorn',
+            start: new Date(app.currentYear, 11, 22), // December 22
+            end: new Date(app.currentYear + 1, 0, 19)
+        },// January 19
+        {
+            sign: 'aquarius',
+            start: new Date(app.currentYear, 0, 20), // january 20
+            end: new Date(app.currentYear, 1, 18)
+        }, // february 18
+        {
+            sign: 'pisces',
+            start: new Date(app.currentYear, 1, 19), // february 19
+            end: new Date(app.currentYear, 2, 20) // march 20
+        }
+    ];
+
     // today
     app.apiDescriptionToday = document.querySelector('.apiDescriptionToday');
     app.apiCompatibilityToday = document.querySelector('.apiCompatibilityToday');
@@ -277,16 +398,20 @@ app.init = () => {
     app.apiTimeTomorrow = document.querySelector('.apiLuckyTimeTomorrow');
 
     app.tomorrow = document.querySelectorAll('.tomorrow');
-    
+
     app.apiURL = 'https://aztro.sameerkumar.website';
 
     app.apiSign = ''; // based on user input
 
     app.width = window.innerWidth;
 
+    app.submitUserDate();
+    app.enterBirthday();
+
     app.hovers();
     app.getSignButtons();
     app.toggleHoroscope();
+    
 }
 
 app.init();
