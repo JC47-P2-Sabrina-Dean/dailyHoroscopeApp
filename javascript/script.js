@@ -3,8 +3,13 @@ const app = {};
 app.enterBirthday = () => {
     app.openModal.addEventListener("click", () => {
         app.modal.showModal();
+
+        app.closeModal.addEventListener('click', () => {
+            modal.close();
+        })
     });
 }
+
 
 app.handleClick = function(event) {
     event.preventDefault();
@@ -286,7 +291,7 @@ app.toggleHoroscope = () => {
 
 app.init = () => {
     app.signsButtons = document.querySelectorAll('.signsButton');
-    app.backButton = document.querySelector('.backButton');
+    app.backButton = document.querySelector('#backButton');
     app.horoscopeSection = document.querySelector('.horoscopeViewSection');
     app.signsViewSection = document.querySelector('.signButtonSection');
     app.horoscopeBox = document.querySelector('.horoscopeView');
@@ -303,7 +308,7 @@ app.init = () => {
     app.currentYear = app.todaysDate.getFullYear();
     app.openModal = document.querySelector("#choose");
     app.modal = document.querySelector("#modal");
-    const closeModal = document.querySelector("#yes");
+    app.closeModal = document.getElementById("exit");
     app.enter = document.querySelector("#enter");
 
     app.starSignArr = [

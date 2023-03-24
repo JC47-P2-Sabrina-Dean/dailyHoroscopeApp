@@ -11,7 +11,11 @@ h3 {
   font-family: $titleFont;
 }
 
-p {
+p, select {
+  font-family: $bodyFont;
+}
+
+.button {
   font-family: $bodyFont;
 }
 

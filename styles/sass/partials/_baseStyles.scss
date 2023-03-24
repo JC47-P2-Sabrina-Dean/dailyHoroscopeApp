@@ -1,7 +1,7 @@
 /* =======================
 GENERAL STYLES
 ======================= */
-  
+
 html {
   background-image: url('../assets/starBackground.jpg');
   background-size: cover;
@@ -40,8 +40,19 @@ img {
   padding: 5px;
 }
 
-button {
+.button {
   border: 0;
-  background-color: $white;
-  color: $black;
+  align-self: center;
+  padding: 0.5em 1em;
+  border-radius: 15px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $grey;
+  }
+
+  &:focus {
+    background-color: $grey;
+    outline: 2px solid orange;
+  }
 }
