@@ -1,16 +1,22 @@
 const app = {};
 
-app.enterBirthday = () => {
+app.userBirthday = () => {
+    //event listener for opening the the birthday selector modal
     app.openModal.addEventListener("click", () => {
         app.modal.showModal();
 
+        // event listener for closing the birthday selector modal
         app.closeModal.addEventListener('click', () => {
             modal.close();
         })
     });
 }
 
+app.submitUserDate = () => {
+    app.enter.addEventListener("click", app.handleClick);
+}
 
+// method to convert user birthday input and run conditional against star sign array
 app.handleClick = function(event) {
     event.preventDefault();
     modal.close();
@@ -19,8 +25,8 @@ app.handleClick = function(event) {
     // find the value of the day select and store in a variable 
     let day = Number(document.querySelector("#day").value);
     let monthDay = new Date(app.currentYear, month, day);
+    // function to compare user birthday to star sign array
     app.getStarSign(monthDay);
-    console.log('getStarSign',monthDay);
 
     // switch to other page
     app.getHoroscopeYesterday();
@@ -34,10 +40,6 @@ app.handleClick = function(event) {
         app.backButton.style.opacity = '1';
         app.horoscopeSection.style.opacity = '1';
     }, 250);
-}
-
-app.submitUserDate = () => {
-    app.enter.addEventListener("click", app.handleClick);
 }
 
 // Method to compare users birthday with star sign array
@@ -411,7 +413,7 @@ app.init = () => {
     app.width = window.innerWidth;
 
     app.submitUserDate();
-    app.enterBirthday();
+    app.userBirthday();
 
     app.hovers();
     app.getSignButtons();

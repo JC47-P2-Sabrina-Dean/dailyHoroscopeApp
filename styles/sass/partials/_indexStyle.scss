@@ -15,8 +15,8 @@ nav {
 
   // change star sign 
   .button {
+    // toggle visibility to make button reappear in second view, to return to first view
     visibility: hidden;
-    // toggle this to make button reappear in second view, to return to first view
     transition: 0.3s ease;
     opacity: 1;
   }
@@ -25,8 +25,8 @@ nav {
 // SIGNS BUTTON SECTION
 .signButtonSection {
   height: auto;
+  // toggle this display to make first view disappear
   // display: none;
-  // toggle this to make first view disappear
   transition: 0.3s ease;
   opacity:1;
 
@@ -45,22 +45,7 @@ nav {
       display: flex;
       flex-direction: column;
       gap: 50px;
-   
-      // .button {
-      //   align-self: center;
-      //   padding: 0.5em 1em;
-      //   border-radius: 15px;
-      //   cursor: pointer;
-  
-      //   &:hover {
-      //     background-color: $grey;
-      //   }
-  
-      //   &:focus {
-      //     background-color: $grey;
-      //     outline: 5px dotted orange;
-      //   }
-      // }
+
     }
 
 
@@ -121,14 +106,6 @@ nav {
       background: rgba(0, 0, 0, 0.8);
     }
 
-    // .exit {
-    //   display: flex;
-    //   justify-content: flex-end;
-    //   width: 100%;
-    //   cursor: pointer;
-    //   padding-bottom: 20px;
-    // }
-
     .formContainer {
       form {
         display: flex;
@@ -145,8 +122,6 @@ nav {
         .exit {
           background-color: transparent;
           border: 0;
-          // margin: 0;
-          // padding: 0;
           cursor: pointer;
 
           &:focus {
