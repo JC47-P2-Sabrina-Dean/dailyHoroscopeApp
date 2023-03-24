@@ -62,16 +62,22 @@ MEDIA QUERIES
       margin-bottom: 50px;
     }
 
-    .apiFacts.open {
+    .horoscopeViewSection .horoscopeView .apiFacts.open {
       flex-direction: column;
-      
-      li {
-        padding: 10px 0;
-      }
+    }
+
+    .horoscopeViewSection .horoscopeView .apiFacts.open li {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 80%;
     }
 } 
   
 @media (max-width: 480px) {
+
+  html{
+    font-size: 95%;
+  }
 
   .signButtonSection .signsView .intro {
       width: 100%;
