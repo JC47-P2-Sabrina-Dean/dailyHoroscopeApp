@@ -272,10 +272,13 @@ app.toggleHoroscope = () => {
             // remove .open off for all panels and children
             allOpen.forEach((item) => {
                 item.classList.remove('open');
+                item.disabled = false;
             });
 
             // add .open to clicked panel
             this.classList.add('open');
+            // if the button is already open, it should not be in tabbing order
+            this.disabled = true;
             // add .open to clicked panel's children
             const panelChildren = Array.from(this.children);
             panelChildren.forEach((child) => {
