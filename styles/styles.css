@@ -232,7 +232,7 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   font-size: 125%;
-  width: 100%;
+  width: 100vw;
   overflow-x: hidden;
   height: 100vh;
 }
