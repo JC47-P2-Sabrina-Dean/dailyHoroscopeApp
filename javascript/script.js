@@ -1,5 +1,6 @@
 const app = {};
 
+// method to open or close user input modal
 app.userBirthday = () => {
     //event listener for opening the the birthday selector modal
     app.openModal.addEventListener("click", () => {
@@ -12,35 +13,42 @@ app.userBirthday = () => {
     });
 }
 
+// event Listener listening for when the user clicks the enter button after submitting thier birthday and month
 app.submitUserDate = () => {
     app.enter.addEventListener("click", app.handleClick);
 }
 
 // method to convert user birthday input and run conditional against star sign array
 app.handleClick = function(event) {
+    // prevents the browser from refreshing after the enter button is clicked on the form
     event.preventDefault();
     modal.close();
     // find the value of the month select and store in a variable
     let month = Number(document.querySelector("#month").value);
     // find the value of the day select and store in a variable 
     let day = Number(document.querySelector("#day").value);
-    let monthDay = new Date(app.currentYear, month, day);
-    // function to compare user birthday to star sign array
-    app.getStarSign(monthDay);
+    // method to filter the users birthday
+    app.checkCapricorn(month, day);
 
-    // switch to other page
-    app.getHoroscopeYesterday();
-    app.getHoroscopeToday();
-    app.getHoroscopeTomorrow();
-    app.changeSign();
-    setTimeout(function () {
-        app.signsViewSection.style.display = 'none';
-        app.horoscopeSection.style.display = 'block';
-        app.backButton.style.visibility = 'visible';
-        app.backButton.style.opacity = '1';
-        app.horoscopeSection.style.opacity = '1';
-    }, 250);
 }
+
+// method to check if the users birthday is in January before Jan 20th
+app.checkCapricorn = (userMonth, userDay) => {
+
+    // conditional if users birthday is in January before Jan 20th
+    if (userMonth === 0 && userDay < 20) {
+        // constructor builds users birthday into correct format add's one year to the current year (2023 + 1 = 2024)
+        userDate = new Date(app.currentYear + 1, userMonth, userDay);
+        // call Star Sign Array compare
+        app.getStarSign(userDate);
+
+    } else {
+        // constructor builds users birthday into correct format
+        userDate = new Date(app.currentYear, userMonth, userDay);
+        // call Star Sign Array compare
+        app.getStarSign(userDate);
+    }
+};
 
 // Method to compare users birthday with star sign array
 app.getStarSign = (date) => {
@@ -48,14 +56,24 @@ app.getStarSign = (date) => {
     for (let i = 0; i < app.starSignArr.length; i++) {
         if (date >= app.starSignArr[i].start && date <= app.starSignArr[i].end) {
             app.apiSign = app.starSignArr[i].sign;
-            console.log(app.apiSign);
-        } else {
-            // hard coded as the default if error
-            app.apiSign = 'Capricorn';
+
+            // call API fetches using users star sign
+            app.getHoroscopeYesterday();
+            app.getHoroscopeToday();
+            app.getHoroscopeTomorrow();
+            app.changeSign();
+            setTimeout(function () {
+                app.signsViewSection.style.display = 'none';
+                app.horoscopeSection.style.display = 'block';
+                app.backButton.style.visibility = 'visible';
+                app.backButton.style.opacity = '1';
+                app.horoscopeSection.style.opacity = '1';
+            }, 250);
         }
     }
 }
 
+// API fetch to get users horoscope for today
 app.getHoroscopeToday = () => {
     const url = new URL(app.apiURL);
     url.search = new URLSearchParams({
@@ -65,7 +83,6 @@ app.getHoroscopeToday = () => {
 
     fetch(url, { method: 'POST' })
         .then((response) => {
-            console.log(response);
             if (response.ok === true) { 
                 return response.json();
             } else {
@@ -73,7 +90,6 @@ app.getHoroscopeToday = () => {
             }
         })
         .then((jsonResult) => {
-            console.log(jsonResult);
 
             app.apiImage.attributes.src.textContent = `./assets/${app.apiSign}.png`;
             app.apiImage.attributes.alt.textContent = `${app.apiSign} symbol`;
@@ -94,6 +110,7 @@ app.getHoroscopeToday = () => {
         })
 };
 
+// API fetch to get users horoscope for yesterday
 app.getHoroscopeYesterday = () => {
     const url = new URL(app.apiURL);
     url.search = new URLSearchParams({
@@ -103,7 +120,6 @@ app.getHoroscopeYesterday = () => {
 
     fetch(url, { method: 'POST' })
         .then((response) => {
-            console.log(response);
             if (response.ok === true) {
                 return response.json();
             } else {
@@ -111,7 +127,6 @@ app.getHoroscopeYesterday = () => {
             }
         })
         .then((jsonResult) => {
-            console.log(jsonResult);
 
             app.apiDescriptionYesterday.innerText = jsonResult.description;
             app.apiCompatibilityYesterday.innerText = jsonResult.compatibility;
@@ -126,6 +141,7 @@ app.getHoroscopeYesterday = () => {
         })
 };
 
+// API fetch to get users horoscope for tomorrow
 app.getHoroscopeTomorrow = () => {
     const url = new URL(app.apiURL);
     url.search = new URLSearchParams({
@@ -135,7 +151,6 @@ app.getHoroscopeTomorrow = () => {
 
     fetch(url, { method: 'POST' })
         .then((response) => {
-            console.log(response);
             if (response.ok === true) {
                 return response.json();
             } else {
@@ -143,7 +158,6 @@ app.getHoroscopeTomorrow = () => {
             }
         })
         .then((jsonResult) => {
-            console.log(jsonResult);
 
             app.apiDescriptionTomorrow.innerText = jsonResult.description;
             app.apiCompatibilityTomorrow.innerText = jsonResult.compatibility;
@@ -158,6 +172,7 @@ app.getHoroscopeTomorrow = () => {
         })
 };
 
+// hover effects for sign buttons to display sign info
 app.hovers = () => {
     // method to display sign info when user mouseovers symbol
     // if screen is big
@@ -231,14 +246,21 @@ app.changeSign = () => {
     });
 }
 
-    // method for listening to which sign button was clicked
+// method for listening to which sign button was clicked
+// method for eventlistener listening for when a star sign icon is clicked, thne pass that as a value to the api and change the screen to horoscope view
 app.getSignButtons = () => {
 
-    //depending in which was clicked, give that as input to the api and changes the screen to horoscope view
+    // iterate through all star sign icons
     app.signsButtons.forEach((button) => {
+
+        // event listener to listen for a particular click on an icon
         button.addEventListener('click', function () {
+
+            // store that icon's value in a variable
             app.apiSign = this.attributes.id.textContent;
+
             app.signsViewSection.style.opacity = '0';
+
             // call api fetching methods
             app.getHoroscopeYesterday();
             app.getHoroscopeToday();
@@ -256,7 +278,6 @@ app.getSignButtons = () => {
         });
     });
 };
-
 
 app.toggleHoroscope = () => {
     // listen for each panel
