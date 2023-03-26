@@ -232,9 +232,9 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   font-size: 125%;
-  width: 100vw;
+  width: 100%;
   overflow-x: hidden;
-  height: 100vh;
+  height: 100%;
 }
 
 body {
@@ -265,7 +265,6 @@ img {
   max-width: 100%; /* Makes all images become responsive if the parent container wants to shrink */
   display: block; /* removes extra padding at bottom of images */
   height: auto;
-  padding: 5%;
 }
 
 .button {
