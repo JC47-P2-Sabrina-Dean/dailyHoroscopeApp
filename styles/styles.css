@@ -232,6 +232,9 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   font-size: 125%;
+}
+
+body {
   overflow-x: hidden;
 }
 
@@ -259,7 +262,6 @@ img {
   max-width: 100%; /* Makes all images become responsive if the parent container wants to shrink */
   display: block; /* removes extra padding at bottom of images */
   height: auto;
-  padding: 5px;
 }
 
 .button {
@@ -431,9 +433,11 @@ nav .button {
 }
 .signButtonSection .signsView .signsGrid .signsCircle .signsButton {
   width: 100px;
+  height: 100px;
   border-radius: 50%;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  padding: 5%;
 }
 .signButtonSection .signsView .signsGrid .signsCircle .signsButton:hover {
   -webkit-transform: scale(1.1, 1.1);
@@ -542,6 +546,9 @@ nav .button {
           align-items: center;
   text-align: center;
   margin: 10px 0 30px;
+}
+.horoscopeViewSection .apiImage {
+  padding: 5%;
 }
 .horoscopeViewSection .horoscopeView {
   display: -webkit-box;

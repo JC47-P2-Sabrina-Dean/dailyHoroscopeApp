@@ -9,6 +9,10 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   font-size: 125%; // 20px
+  // overflow-x: hidden; // prevent horizontal scrolling, even on mobile device rotated horizontally
+}
+
+body {
   overflow-x: hidden;
 }
 
@@ -37,7 +41,6 @@ img {
   max-width: 100%; /* Makes all images become responsive if the parent container wants to shrink */
   display: block; /* removes extra padding at bottom of images */
   height: auto;
-  padding: 5px;
 }
 
 .button {
