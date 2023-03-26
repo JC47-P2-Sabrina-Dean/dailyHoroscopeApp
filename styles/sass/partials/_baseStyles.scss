@@ -11,6 +11,7 @@ html {
   font-size: 125%; // 20px
   width: 100%;
   overflow-x: hidden; // prevent horizontal scrolling, even on mobile device rotated horizontally
+  height: 100vh; // prevent white space on the side when in horizontal mobile view
 }
 
 body {
@@ -42,7 +43,7 @@ img {
   max-width: 100%; /* Makes all images become responsive if the parent container wants to shrink */
   display: block; /* removes extra padding at bottom of images */
   height: auto;
-  padding: 5px;
+  padding: 5%;
 }
 
 .button {
