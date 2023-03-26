@@ -278,6 +278,10 @@ img {
   outline: 2px solid orange;
 }
 
+button {
+  border: none;
+}
+
 h1,
 h2,
 h3,
@@ -380,7 +384,7 @@ nav .button {
   padding-top: 25px;
 }
 .signButtonSection .signsView .intro {
-  width: 75%;
+  width: 80%;
   text-align: center;
   text-justify: inter-word;
   display: -webkit-box;
@@ -390,7 +394,7 @@ nav .button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 50px;
+  gap: 25px;
 }
 .signButtonSection .signsView .signsGrid {
   display: -webkit-box;
@@ -406,7 +410,7 @@ nav .button {
       flex-wrap: wrap;
   height: auto;
   padding-top: 5vh;
-  margin-top: 50px;
+  margin-top: 20px;
   max-width: 960px;
   min-width: 320px;
 }
@@ -519,7 +523,6 @@ nav .button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-bottom: 20px;
 }
 .horoscopeViewSection .horoscopeViewHeader .horoscopeSignImg {
   width: 100px;
@@ -586,7 +589,7 @@ nav .button {
   cursor: auto;
 }
 .horoscopeViewSection .horoscopeView .horoscopeFlex.open:hover {
-  background-color: none;
+  background-color: #efefef;
   cursor: auto;
 }
 .horoscopeViewSection .horoscopeView .horoscopeFlex.open:focus {
@@ -721,17 +724,27 @@ MEDIA QUERIES
   .horoscopeViewSection .horoscopeFlex .horoscope {
     margin-bottom: 50px;
   }
-  .apiFacts.open {
+  .horoscopeViewSection .horoscopeView .apiFacts.open {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .apiFacts.open li {
-    padding: 10px 0;
+  .horoscopeViewSection .horoscopeView .apiFacts.open li {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 80%;
   }
 }
 @media (max-width: 480px) {
+  html {
+    font-size: 95%;
+  }
   .signButtonSection .signsView .intro {
     width: 100%;
   }
