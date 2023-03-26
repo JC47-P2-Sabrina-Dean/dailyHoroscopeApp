@@ -232,9 +232,6 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   font-size: 125%;
-  width: 100%;
-  overflow-x: hidden;
-  height: 100%;
 }
 
 body {
@@ -440,6 +437,7 @@ nav .button {
   border-radius: 50%;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  padding: 5%;
 }
 .signButtonSection .signsView .signsGrid .signsCircle .signsButton:hover {
   -webkit-transform: scale(1.1, 1.1);
@@ -548,6 +546,9 @@ nav .button {
           align-items: center;
   text-align: center;
   margin: 10px 0 30px;
+}
+.horoscopeViewSection .apiImage {
+  padding: 5%;
 }
 .horoscopeViewSection .horoscopeView {
   display: -webkit-box;

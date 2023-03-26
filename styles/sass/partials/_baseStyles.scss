@@ -9,9 +9,7 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   font-size: 125%; // 20px
-  width: 100%;
-  overflow-x: hidden; // prevent horizontal scrolling, even on mobile device rotated horizontally
-  height: 100%; // prevent white space on the side when in horizontal mobile view
+  // overflow-x: hidden; // prevent horizontal scrolling, even on mobile device rotated horizontally
 }
 
 body {

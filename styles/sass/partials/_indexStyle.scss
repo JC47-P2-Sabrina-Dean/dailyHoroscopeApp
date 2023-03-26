@@ -73,6 +73,7 @@ nav {
           height: 100px;
           border-radius: 50%;
           transition: all 0.3s ease-in-out;
+          padding: 5%;
           
           &:hover {
             transform: scale(1.1, 1.1);
@@ -152,8 +153,10 @@ nav {
 
       .horoscopeSignImg {
         width: 100px;
+        // height: 100px;
         border-radius: 50%;
         background-color: $white;
+        // padding: 5%;
       }
 
       .signRange {
@@ -164,6 +167,10 @@ nav {
         margin: 10px 0 30px;
       }
     }
+
+  .apiImage{
+    padding: 5%;
+  }
 
   .horoscopeView {
     display: flex;
