@@ -1,7 +1,7 @@
 /* =======================
 GENERAL STYLES
 ======================= */
-  
+
 html {
   background-image: url('../assets/starBackground.jpg');
   background-size: cover;
@@ -9,6 +9,10 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   font-size: 125%; // 20px
+  // overflow-x: hidden; // prevent horizontal scrolling, even on mobile device rotated horizontally
+}
+
+body {
   overflow-x: hidden;
 }
 
@@ -37,11 +41,25 @@ img {
   max-width: 100%; /* Makes all images become responsive if the parent container wants to shrink */
   display: block; /* removes extra padding at bottom of images */
   height: auto;
-  padding: 5px;
+}
+
+.button {
+  border: 0;
+  align-self: center;
+  padding: 0.5em 1em;
+  border-radius: 15px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $grey;
+  }
+
+  &:focus {
+    background-color: $grey;
+    outline: 2px solid orange;
+  }
 }
 
 button {
-  border: 0;
-  background-color: $white;
-  color: $black;
+  border: none;
 }

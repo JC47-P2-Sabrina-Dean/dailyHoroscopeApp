@@ -2,34 +2,84 @@
 MEDIA QUERIES
 ======================= */
   
-@media (max-width: 960px) {}
+@media (max-width: 960px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+
+    div{
+      width: auto;
+      height: auto;
+    }
+
+    .backButton {
+      width: 150px;
+      margin: 0 0 40px 0;
+    }
+  }
+
+  .signButtonSection{
+    margin-bottom: 50px;
+
+    .signsView .intro{
+      margin-top: -60px;
+    }
+
+    .signsView .signsGrid .signsCircle .signRange {
+      transform: none;
+      padding: 15px 0;
+
+      h2, p{
+        font-size: 0.9rem;
+      }
+    } 
+}
+  
+
+  .horoscopeView{
+    flex-direction: column;
+    margin-bottom: 50px;
+
+    .horoscopeFlex.open{
+      margin: 20px 0;
+      padding: 10px 0;
+    }
+  }
+}
   
 @media (max-width: 768px) {
+  nav h1{
+    width: 80vw;
+  }
+
   .signButtonSection .signsView .signsGrid {
     padding-bottom: 60px;
     padding-top: 10px;
   }
 
     .horoscopeViewSection .horoscopeFlex .horoscope {
-      margin-bottom: 100px;
+      margin-bottom: 50px;
+    }
 
-      .apiFacts {
-        // flex-direction: column;
-        
+    .horoscopeViewSection .horoscopeView .apiFacts.open {
+      flex-direction: column;
+    }
 
-        li {
-          padding: 20px 0;
-        }
-      }
-    } 
-
-}
+    .horoscopeViewSection .horoscopeView .apiFacts.open li {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 80%;
+    }
+} 
   
 @media (max-width: 480px) {
+
+  html{
+    font-size: 95%;
+  }
 
   .signButtonSection .signsView .intro {
       width: 100%;
     }
-
-
 }

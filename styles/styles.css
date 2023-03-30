@@ -232,6 +232,9 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   font-size: 125%;
+}
+
+body {
   overflow-x: hidden;
 }
 
@@ -259,13 +262,26 @@ img {
   max-width: 100%; /* Makes all images become responsive if the parent container wants to shrink */
   display: block; /* removes extra padding at bottom of images */
   height: auto;
-  padding: 5px;
+}
+
+.button {
+  border: 0;
+  -ms-flex-item-align: center;
+      align-self: center;
+  padding: 0.5em 1em;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #c2c2c2;
+}
+.button:focus {
+  background-color: #c2c2c2;
+  outline: 2px solid orange;
 }
 
 button {
-  border: 0;
-  background-color: #efefef;
-  color: #111010;
+  border: none;
 }
 
 h1,
@@ -281,7 +297,11 @@ h3 {
   font-family: "Spectral SC", serif;
 }
 
-p {
+p, select {
+  font-family: "Mali", cursive;
+}
+
+.button {
   font-family: "Mali", cursive;
 }
 
@@ -323,9 +343,8 @@ nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -333,28 +352,14 @@ nav {
   width: 100vw;
 }
 nav div {
-  width: 15%;
+  visibility: hidden;
+  width: 20%;
 }
-nav .changeButton {
+nav .button {
   visibility: hidden;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
   opacity: 1;
-  font-family: "Spectral SC", serif;
-  padding: 15px 10px;
-  margin-right: 20%;
-  border-radius: 15px;
-  font-weight: bold;
-  font-size: 1rem;
-  width: 10vw;
-}
-nav .changeButton:hover {
-  background-color: #c2c2c2;
-  cursor: pointer;
-}
-nav .changeButton:focus {
-  outline: 5px dotted orange;
-  background-color: #c2c2c2;
 }
 
 .signButtonSection {
@@ -381,9 +386,17 @@ nav .changeButton:focus {
   padding-top: 25px;
 }
 .signButtonSection .signsView .intro {
-  width: 75%;
+  width: 80%;
   text-align: center;
   text-justify: inter-word;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 25px;
 }
 .signButtonSection .signsView .signsGrid {
   display: -webkit-box;
@@ -398,8 +411,8 @@ nav .changeButton:focus {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   height: auto;
-  padding-top: 15vh;
-  margin-top: 50px;
+  padding-top: 5vh;
+  margin-top: 20px;
   max-width: 960px;
   min-width: 320px;
 }
@@ -420,9 +433,11 @@ nav .changeButton:focus {
 }
 .signButtonSection .signsView .signsGrid .signsCircle .signsButton {
   width: 100px;
+  height: 100px;
   border-radius: 50%;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  padding: 5%;
 }
 .signButtonSection .signsView .signsGrid .signsCircle .signsButton:hover {
   -webkit-transform: scale(1.1, 1.1);
@@ -430,7 +445,7 @@ nav .changeButton:focus {
   cursor: pointer;
 }
 .signButtonSection .signsView .signsGrid .signsCircle .signsButton:focus {
-  outline: 5px dotted orange;
+  outline: 3px solid orange;
 }
 .signButtonSection .signsView .signsGrid .signsCircle .signRange {
   margin-top: 10px;
@@ -452,6 +467,48 @@ nav .changeButton:focus {
   -webkit-transform: scale(0);
           transform: scale(0);
 }
+.signButtonSection .modal {
+  width: 350px;
+  border-radius: 20px;
+  padding: 15px 30px 40px;
+}
+.signButtonSection .modal::-webkit-backdrop {
+  background: rgba(0, 0, 0, 0.8);
+}
+.signButtonSection .modal::backdrop {
+  background: rgba(0, 0, 0, 0.8);
+}
+.signButtonSection .modal .formContainer form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 15px;
+}
+.signButtonSection .modal .formContainer .buttonDiv {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-bottom: 20px;
+}
+.signButtonSection .modal .formContainer .buttonDiv .exit {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.signButtonSection .modal .formContainer .buttonDiv .exit:focus {
+  outline: 2px solid orange;
+}
+.signButtonSection .modal .formContainer p {
+  text-align: center;
+  padding-bottom: 20px;
+}
 
 .horoscopeViewSection {
   display: none;
@@ -459,9 +516,7 @@ nav .changeButton:focus {
   transition: 0.3s ease-in-out;
   opacity: 1;
 }
-.horoscopeViewSection .horoscopeFlex {
-  width: 100%;
-  height: auto;
+.horoscopeViewSection .horoscopeViewHeader {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -473,27 +528,12 @@ nav .changeButton:focus {
       -ms-flex-align: center;
           align-items: center;
 }
-.horoscopeViewSection .horoscopeSignImg {
+.horoscopeViewSection .horoscopeViewHeader .horoscopeSignImg {
   width: 100px;
-  height: 100px;
   border-radius: 50%;
   background-color: #efefef;
 }
-.horoscopeViewSection .signRange {
-  text-align: center;
-  margin: 10px 0 30px;
-}
-.horoscopeViewSection .apiCurrentDate {
-  padding: 10px 0;
-}
-.horoscopeViewSection .horoscope, .horoscopeViewSection .apiDescription {
-  padding: 35px 0;
-}
-.horoscopeViewSection .horoscope {
-  background-color: #efefef;
-  color: #111010;
-  border-radius: 15px;
-  width: 75%;
+.horoscopeViewSection .horoscopeViewHeader .signRange {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -504,14 +544,93 @@ nav .changeButton:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-align: center;
+  margin: 10px 0 30px;
 }
-.horoscopeViewSection .horoscope .apiDescription {
+.horoscopeViewSection .apiImage {
+  padding: 5%;
+}
+.horoscopeViewSection .horoscopeView {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+.horoscopeViewSection .horoscopeView .horoscopeFlex {
+  background-color: #efefef;
+  color: #111010;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 10px;
+  padding: 25px 0 5px;
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5;
+          flex: 0.5;
+}
+.horoscopeViewSection .horoscopeView .horoscopeFlex:hover {
+  background-color: #c2c2c2;
+  cursor: pointer;
+}
+.horoscopeViewSection .horoscopeView .horoscopeFlex:focus {
+  outline: 3px solid orange;
+  background-color: #c2c2c2;
+}
+.horoscopeViewSection .horoscopeView .horoscopeFlex.open {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  cursor: auto;
+}
+.horoscopeViewSection .horoscopeView .horoscopeFlex.open:hover {
+  background-color: #efefef;
+  cursor: auto;
+}
+.horoscopeViewSection .horoscopeView .horoscopeFlex.open:focus {
+  outline: none;
+  background-color: none;
+}
+.horoscopeViewSection .horoscopeView .date {
+  text-orientation: upright;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+}
+.horoscopeViewSection .horoscopeView .date.open, .horoscopeViewSection .horoscopeView .apiCurrentDate {
+  -webkit-writing-mode: horizontal-tb;
+      -ms-writing-mode: lr-tb;
+          writing-mode: horizontal-tb;
+  text-orientation: initial;
+  text-align: center;
+}
+.horoscopeViewSection .horoscopeView .apiDescription {
+  display: none;
+}
+.horoscopeViewSection .horoscopeView .apiDescription.open {
+  display: block;
+  padding: 35px 0;
   width: 75%;
   text-align: center;
   text-justify: inter-word;
   justify-self: center;
 }
-.horoscopeViewSection .horoscope .apiFacts {
+.horoscopeViewSection .horoscopeView .apiFacts {
+  display: none;
+}
+.horoscopeViewSection .horoscopeView .apiFacts.open {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -526,7 +645,7 @@ nav .changeButton:focus {
       flex-wrap: wrap;
   padding: 10px 0 0;
 }
-.horoscopeViewSection .horoscope .apiFacts li {
+.horoscopeViewSection .horoscopeView .apiFacts.open li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -537,9 +656,9 @@ nav .changeButton:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 10vw;
+  width: 8vw;
 }
-.horoscopeViewSection .horoscope .apiFacts li p {
+.horoscopeViewSection .horoscopeView .apiFacts.open li p {
   text-align: center;
   font-family: "Spectral", serif;
 }
@@ -556,19 +675,83 @@ footer {
 /* =======================
 MEDIA QUERIES
 ======================= */
+@media (max-width: 960px) {
+  nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-bottom: 20px;
+  }
+  nav div {
+    width: auto;
+    height: auto;
+  }
+  nav .backButton {
+    width: 150px;
+    margin: 0 0 40px 0;
+  }
+  .signButtonSection {
+    margin-bottom: 50px;
+  }
+  .signButtonSection .signsView .intro {
+    margin-top: -60px;
+  }
+  .signButtonSection .signsView .signsGrid .signsCircle .signRange {
+    -webkit-transform: none;
+            transform: none;
+    padding: 15px 0;
+  }
+  .signButtonSection .signsView .signsGrid .signsCircle .signRange h2, .signButtonSection .signsView .signsGrid .signsCircle .signRange p {
+    font-size: 0.9rem;
+  }
+  .horoscopeView {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 50px;
+  }
+  .horoscopeView .horoscopeFlex.open {
+    margin: 20px 0;
+    padding: 10px 0;
+  }
+}
 @media (max-width: 768px) {
+  nav h1 {
+    width: 80vw;
+  }
   .signButtonSection .signsView .signsGrid {
     padding-bottom: 60px;
     padding-top: 10px;
   }
   .horoscopeViewSection .horoscopeFlex .horoscope {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
   }
-  .horoscopeViewSection .horoscopeFlex .horoscope .apiFacts li {
-    padding: 20px 0;
+  .horoscopeViewSection .horoscopeView .apiFacts.open {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .horoscopeViewSection .horoscopeView .apiFacts.open li {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 80%;
   }
 }
 @media (max-width: 480px) {
+  html {
+    font-size: 95%;
+  }
   .signButtonSection .signsView .intro {
     width: 100%;
   }
